@@ -1,0 +1,276 @@
+:host {
+  display: contents;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  max-width: 1210px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo {
+  width: 136px;
+  height: auto;
+}
+
+.navigation {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font: 400 32px Inter, sans-serif;
+}
+
+.nav-link--active {
+  color: #3ECCB5;
+}
+
+.nav-link--cta {
+  background-color: #3ECCB5;
+  color: #FFF;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.hero {
+  position: relative;
+  min-height: 483px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 122px 204px;
+  background: url('https://cdn.builder.io/api/v1/image/assets/TEMP/bd847a6ed1bbff600cf207c4fa3b54e4192f9c6ab41fd8efed2ffc72b8946814?placeholderIfAbsent=true&apiKey=6c5890f277284f989c67a68ce0b39f0c') no-repeat center/cover;
+}
+
+.hero__content {
+  text-align: center;
+  z-index: 1;
+}
+
+.hero__title {
+  color: #FFF;
+  font: 400 40px Inter, sans-serif;
+  margin-bottom: 25px;
+}
+
+.hero__image {
+  max-width: 393px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.hero__tagline {
+  color: #3ECCB5;
+  font: 700 42px/40px Inter, sans-serif;
+}
+
+.hero__tagline span {
+  color: #FFF;
+}
+
+.promise {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.promise__title {
+  color: #000;
+  font: 700 40px Inter, sans-serif;
+  margin-bottom: 39px;
+}
+
+.promise__text {
+  color: #000;
+  font: 400 32px/32px Inter, sans-serif;
+  max-width: 1047px;
+  margin: 0 auto 16px;
+}
+
+.promise__source {
+  color: #000;
+  font: 600 32px Inter, sans-serif;
+}
+
+.programs {
+  background-color: #313131;
+  display: flex;
+  padding: 53px 80px;
+}
+
+.programs__image {
+  width: 285px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.programs__content {
+  flex: 1;
+}
+
+.programs__title {
+  color: #FFF;
+  font: 700 40px Inter, sans-serif;
+  margin-bottom: 57px;
+}
+
+.programs__grid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 39px;
+}
+
+.programs__thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.programs__link {
+  color: #3ECCB5;
+  font: 400 40px Inter, sans-serif;
+  text-decoration: none;
+}
+
+.testimonials {
+  padding: 73px 0;
+}
+
+.testimonials__title {
+  color: #000;
+  font: 700 40px Inter, sans-serif;
+  margin-bottom: 94px;
+}
+
+.testimonials__grid {
+  display: flex;
+  gap: 20px;
+  max-width: 1047px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  background-color: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  flex: 1;
+}
+
+.testimonial__name {
+  font: 700 24px Inter, sans-serif;
+  margin-bottom: 20px;
+}
+
+.testimonial__text {
+  font: 400 18px Inter, sans-serif;
+}
+
+.cta {
+  background: url('https://cdn.builder.io/api/v1/image/assets/TEMP/92d3d5c745d84a65f08e1fc03541373486d61829dc263bc8534d097034760838?placeholderIfAbsent=true&apiKey=6c5890f277284f989c67a68ce0b39f0c') no-repeat center/cover;
+  min-height: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 77px 80px;
+}
+
+.cta__content {
+  max-width: 659px;
+}
+
+.cta__title {
+  font: 800 64px/60px Inter, sans-serif;
+  color: #FFF;
+  margin-bottom: 15px;
+}
+
+.cta__title span {
+  color: #3ECCB5;
+}
+
+.cta__text {
+  font: 400 30px/30px Inter, sans-serif;
+  color: #FFF;
+  margin-bottom: 63px;
+}
+
+.cta__button {
+  display: inline-block;
+  background-color: #3ECCB5;
+  color: #FFF;
+  font: 700 32px Inter, sans-serif;
+  text-decoration: none;
+  padding: 14px 49px;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #313131;
+  min-height: 89px;
+}
+
+@media (max-width: 991px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero__tagline {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .programs {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .programs__image {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .testimonials__grid {
+    flex-direction: column;
+  }
+
+  .cta {
+    padding: 40px 20px;
+  }
+
+  .cta__title {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .cta__text {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .cta__button {
+    font-size: 24px;
+    padding: 12px 30px;
+  }
+}
