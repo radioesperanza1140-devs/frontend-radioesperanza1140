@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StrapiService } from '../../data/api/strapi.service';
+import { StrapiService } from '../../services/strapi.service';
 import { Observable } from 'rxjs';
 import { Promise } from '../models/promise.model';
 

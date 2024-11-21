@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Banner } from '../../domain/models/banner.model';
-import { Promise } from '../../domain/models/promise.model';
-import { Programation } from '../../domain/models/programation.mode';
-import { Testimonial } from '../../domain/models/testimonial.model';
-import { environment } from '../../../../environments/environment';
+import { Banner } from '../domain/models/banner.model';
+import { Promise } from '../domain/models/promise.model';
+import { Programation } from '../domain/models/programation.mode';
+import { Testimonial } from '../domain/models/testimonial.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
