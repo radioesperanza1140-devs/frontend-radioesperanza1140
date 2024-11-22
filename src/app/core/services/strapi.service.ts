@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Banner } from '../domain/models/banner.model';
+import { BannerImage } from '../domain/models/banner-images.model';
 import { Promise } from '../domain/models/promise.model';
 import { Programation } from '../domain/models/programation.mode';
 import { Testimonial } from '../domain/models/testimonial.model';
@@ -13,8 +13,8 @@ export class StrapiService {
 
   constructor(private http: HttpClient) {}
 
-  getBanner(): Observable<Banner[]> {
-    return this.http.get<Banner[]>(`${this.apiUrl}/banners?populate=imagen`);
+  getBannerImages(): Observable<BannerImage[]> {
+    return this.http.get<BannerImage[]>(`${this.apiUrl}/banners?populate=imagen`);
   }
 
   getLastPromise(): Observable<Promise[]> {
