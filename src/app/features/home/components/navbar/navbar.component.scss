@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.nav_style{
+    
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  padding: 10px 20px 10px 20px;
+
+}
+
+.btn_donacion{
+    background: #3ECCB5;
+    color: #fff;
+    border-radius: 5px;
+    width: 125px;
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+@media (max-width: 990px) {
+    .btn_donacion {
+        justify-content: flex-start;  /* Alinea el texto a la izquierda */
+        padding-left: 10px;  
+        
+    }
+}
+
+.btn_nav{
+    color: #0d1321;
+    font-size: 20px;
+    
+}
+
+.menu{
+    // background: red;
+    display: flex;
+    gap: 30px;
+  
+}
+
+.active_page{
+  color:#3ECCB5
+}
