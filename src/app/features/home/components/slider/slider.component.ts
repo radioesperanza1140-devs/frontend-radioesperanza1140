@@ -1,11 +1,12 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, ElementRef, viewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
-import { GetBannerUseCase } from '../../../../../core/domain/use-cases/get-banner.usecase';
-import { environment } from '../../../../../../environments/environment';
+
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import { SwiperOptions } from 'swiper/types';
+import { GetBannerUseCase } from '../../../../core/domain/use-cases/get-banner.usecase';
+import { environment } from '../../../../../environments/environment';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class SliderComponent  implements AfterViewInit{
   private readonly swiperContainer = viewChild.required<ElementRef<SwiperContainer>>('swiperContainer');
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
-              private getBannerUseCase:GetBannerUseCase) {
+   private getBannerUseCase:GetBannerUseCase,) {
 
     this.loadImages();
   }
@@ -71,6 +72,8 @@ export class SliderComponent  implements AfterViewInit{
 
   }
 
+  
+
   loadImages() {
     try {
       this.getBannerUseCase.execute().subscribe((response: any) => {
@@ -105,3 +108,4 @@ interface Slide {
     [key: string]: any;
   };
 }
+

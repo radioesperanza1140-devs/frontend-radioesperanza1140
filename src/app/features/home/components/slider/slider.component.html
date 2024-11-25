@@ -1,0 +1,42 @@
+<div class="swiper">
+  <!-- Parallax background image -->
+  <div
+    class="parallax-bg"
+    style="background-image:url('https://dev.radioesperanza1140.com/uploads/side_view_radio_microphone_with_copy_space_1_9c2d0797a4.png')"
+    data-swiper-parallax="-23%"
+  ></div>
+
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide" *ngFor="let slide of images">
+      <img class="swiper-slide-img" [src]="slide.imageUrl" alt="{{slide.title}}">
+      
+      <!-- Title Text -->
+   <div class="contenedor_text">
+    <div class="title" data-swiper-parallax="500" data-swiper-parallax-x="60%" data-swiper-parallax-y="45%">
+      {{slide.title}}
+    </div>
+    
+    <!-- Subtitle Text -->
+    <div class="subtitle" data-swiper-parallax="200">
+      {{slide.description}}
+    </div>
+    
+    <!-- Description Text -->
+    <div class="text" data-swiper-parallax="-300" data-swiper-parallax-duration="100">
+      <p>{{slide.description}}</p>
+    </div>
+   </div>
+    </div>
+  </div>
+
+  <!-- Uncomment to add pagination -->
+  <!-- <div class="swiper-pagination"></div> -->
+
+  <!-- Uncomment to add navigation buttons -->
+  <!-- <div class="swiper-button-prev"></div> -->
+  <!-- <div class="swiper-button-next"></div> -->
+
+  <!-- Uncomment to add scrollbar -->
+  <!-- <div class="swiper-scrollbar"></div> -->
+</div>

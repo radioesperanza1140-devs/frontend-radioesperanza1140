@@ -5,8 +5,9 @@ import { ProgramationComponent } from './features/programation/pages/programatio
 import { ContactComponent } from './features/contact/pages/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'programations', component: ProgramationComponent },
-];
+  { path: '**', redirectTo: 'home' }  
+  ];

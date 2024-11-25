@@ -1,0 +1,52 @@
+.container_promises_and_verses {
+    padding: 48px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+  }
+  
+  .container_verse,
+  .container_promise {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0; /* Oculto inicialmente */
+    transform: translateX(100px); /* Desplaza desde la derecha */
+    transition: all 0.8s ease; /* Transición suave */
+  }
+  
+  .container_promise {
+    transform: translateX(-100px); /* Desplaza desde la izquierda */
+  }
+  
+  /* Cuando el elemento está visible */
+  .visible {
+    opacity: 1; /* Hacer visible */
+    transform: translateX(0); /* Volver a la posición original */
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .text {
+    font-size: 23px;
+  }
+  
+  .quote {
+    color: #3eccb5;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 1400px) {
+    .container_promises_and_verses {
+      gap: 50px;
+    }
+  }
+  
