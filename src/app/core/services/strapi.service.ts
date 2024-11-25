@@ -6,6 +6,7 @@ import { Promise } from '../domain/models/promise.model';
 import { Programation } from '../domain/models/programation.mode';
 import { Testimonial } from '../domain/models/testimonial.model';
 import { environment } from '../../../environments/environment';
+import { RadioPlayer } from '../domain/models/radio-player.model';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
@@ -27,5 +28,9 @@ export class StrapiService {
 
   getTestimonials(): Observable<Testimonial[]> {
     return this.http.get<Testimonial[]>(`${this.apiUrl}/testimonials`);
+  }
+
+  getRadioStreaming(): Observable<RadioPlayer> {
+    return this.http.get<RadioPlayer>(`${this.apiUrl}/radio-player`);
   }
 }

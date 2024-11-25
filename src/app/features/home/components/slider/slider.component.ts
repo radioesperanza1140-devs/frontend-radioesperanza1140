@@ -8,7 +8,6 @@ import { SwiperOptions } from 'swiper/types';
 import { GetBannerUseCase } from '../../../../core/domain/use-cases/get-banner.usecase';
 import { environment } from '../../../../../environments/environment';
 
-
 @Component({
   selector: 'app-slider',
   standalone: true,
@@ -72,7 +71,7 @@ export class SliderComponent  implements AfterViewInit{
 
   }
 
-  
+
 
   loadImages() {
     try {
