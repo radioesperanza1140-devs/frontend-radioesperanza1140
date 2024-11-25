@@ -10,18 +10,18 @@
     <!-- Slides -->
     <div class="swiper-slide" *ngFor="let slide of images">
       <img class="swiper-slide-img" [src]="slide.imageUrl" alt="{{slide.title}}">
-      
+
       <!-- Title Text -->
    <div class="contenedor_text">
     <div class="title" data-swiper-parallax="500" data-swiper-parallax-x="60%" data-swiper-parallax-y="45%">
       {{slide.title}}
     </div>
-    
+
     <!-- Subtitle Text -->
     <div class="subtitle" data-swiper-parallax="200">
       {{slide.description}}
     </div>
-    
+
     <!-- Description Text -->
     <div class="text" data-swiper-parallax="-300" data-swiper-parallax-duration="100">
       <p>{{slide.description}}</p>
@@ -40,3 +40,4 @@
   <!-- Uncomment to add scrollbar -->
   <!-- <div class="swiper-scrollbar"></div> -->
 </div>
+

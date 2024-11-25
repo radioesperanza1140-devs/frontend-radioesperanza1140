@@ -1,0 +1,29 @@
+<nav #navbarRadioPlayer class="navbar fixed-bottom bg-body-tertiary">
+  <div class="container-fluid radio-player">
+      <div class="col-2">
+        <img />
+      </div>
+      <div class="col-8">
+        <button class="pulse-button" (click)="togglePlay(audio)">
+          <i class="fas" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+        </button>
+      </div>
+      <div class="col-2">
+        <div class="volume-wrapper">
+          <button class="volume">
+            <i class="fas fa-solid fa-volume-high"></i>
+          </button>
+          <span style="margin-left: 5px;"></span>
+          <input
+            class="volume-slide"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            [(ngModel)]="volume"
+            (input)="updateVolume(audio)"/>
+          <audio #audio [src]="audioSrc"></audio>
+        </div>
+    </div>
+  </div>
+</nav>
