@@ -1,52 +1,78 @@
+/* Estilos generales */
 .container_promises_and_verses {
-    padding: 48px;
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    gap: 100px;
-    flex-wrap: wrap;
+  padding: 0px 48px 0px 48px;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.container_verse,
+.container_promise {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0; /* Oculto inicialmente */
+  transform: translateX(100px); /* Desplaza desde la derecha */
+  transition: all 0.8s ease; /* Transición suave */
+}
+
+.container_promise {
+  transform: translateX(-100px); /* Desplaza desde la izquierda */
+}
+
+/* Cuando el elemento está visible */
+.visible {
+  opacity: 1; /* Hacer visible */
+  transform: translateX(0); /* Volver a la posición original */
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.text {
+  font-size: 23px;
+}
+
+.quote {
+  color: #3eccb5;
+  font-weight: 500;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 1280px) {
+  /* Reducir el padding en la sección principal */
+  .container_promises_and_verses {
+    padding: 20px; /* Menos padding en pantallas pequeñas */
+    gap: 20px; /* Menos espacio entre los contenedores */
+    margin-bottom: 10px;
+    margin-top: 80px;
   }
-  
-  .container_verse,
-  .container_promise {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0; /* Oculto inicialmente */
-    transform: translateX(100px); /* Desplaza desde la derecha */
-    transition: all 0.8s ease; /* Transición suave */
-  }
-  
-  .container_promise {
-    transform: translateX(-100px); /* Desplaza desde la izquierda */
-  }
-  
-  /* Cuando el elemento está visible */
-  .visible {
-    opacity: 1; /* Hacer visible */
-    transform: translateX(0); /* Volver a la posición original */
-  }
-  
+
+  /* Reducir el tamaño de la fuente */
   .title {
-    font-size: 3rem;
+    font-size: 2rem; /* Tamaño más pequeño para títulos */
   }
-  
+
   .text {
-    font-size: 23px;
+    font-size: 16px; /* Ajustar el tamaño del texto para que quepa mejor en pantallas pequeñas */
   }
-  
+
   .quote {
-    color: #3eccb5;
-    font-weight: 500;
+    font-size: 14px; /* Ajustar tamaño de la cita */
   }
-  
-  @media (max-width: 1400px) {
-    .container_promises_and_verses {
-      gap: 50px;
-    }
+}
+
+@media (max-width: 1400px) {
+  .container_promises_and_verses {
+    gap: 50px;
   }
-  
+}
