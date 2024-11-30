@@ -1,0 +1,41 @@
+.testimonials_container{
+    height: auto;
+    width: 100%;
+
+     padding: 10px;
+     margin: auto;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-wrap: wrap;
+     gap: 50px;
+    
+     margin-bottom: 100px;
+  
+
+}
+
+.text_testimonio{
+    margin-bottom: 40px;
+}
+
+.container_principal{
+    padding-top: 140px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 150px;
+}
+.card_testimonial{
+    height: 500px;
+    width: 400px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 150px 10px 10px 10px;
+}
+.svg_wave{
+    position: absolute;
+}
+

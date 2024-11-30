@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .snap-container {
+    height: 100vh; /* Asegura que el contenedor ocupe la altura total */
+    overflow-y: scroll; /* Permite el desplazamiento vertical */
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth; /* Activa el desplazamiento suave */
+  }
+  
+  .snap-section {
+    scroll-snap-align: start;
+    // min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se distribuyan verticalmente */
+    justify-content: flex-start; /* Ajusta el contenido en la parte superior */
+  }
+
+
