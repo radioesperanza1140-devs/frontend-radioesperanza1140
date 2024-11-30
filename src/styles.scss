@@ -11,3 +11,17 @@ body{
 *{
     font-family: "Inter", sans-serif;
 }
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal no deseado */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;  /* Elimina el scroll horizontal */
+    overflow-y: hidden;  /* Elimina el scroll vertical */
+}
