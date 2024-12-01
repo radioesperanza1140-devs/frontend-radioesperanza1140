@@ -1,5 +1,13 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, ElementRef, viewChild, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  AfterViewInit,
+  ElementRef,
+  viewChild,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 
 import Swiper from 'swiper';
@@ -14,16 +22,18 @@ import { environment } from '../../../../../environments/environment';
   imports: [CommonModule],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SliderComponent  implements AfterViewInit{
-  images:Slide[] = [];
+export class SliderComponent implements AfterViewInit {
+  images: Slide[] = [];
   assetsUrl = environment.assetsUrl;
-  private readonly swiperContainer = viewChild.required<ElementRef<SwiperContainer>>('swiperContainer');
+  private readonly swiperContainer =
+    viewChild.required<ElementRef<SwiperContainer>>('swiperContainer');
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,
-   private getBannerUseCase:GetBannerUseCase,) {
-
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private getBannerUseCase: GetBannerUseCase
+  ) {
     this.loadImages();
   }
   ngAfterViewInit(): void {
@@ -38,51 +48,48 @@ export class SliderComponent  implements AfterViewInit{
           // when window width is >= 320px
           320: {
             slidesPerView: 1,
-            spaceBetween: 40
+            spaceBetween: 40,
           },
           // when window width is >= 480px
           480: {
             slidesPerView: 1,
-            spaceBetween: 40
+            spaceBetween: 40,
           },
           // when window width is >= 640px
           640: {
             slidesPerView: 1,
-            spaceBetween: 40
-          }
+            spaceBetween: 40,
+          },
         },
         breakpointsBase: 'window',
-        setWrapperSize:true,
+        // setWrapperSize:true,
         // roundLengths: true,
         slidesPerView: 1,
         // zoom: true,
         autoplay: {
           delay: 2000,
         },
-        speed:500,
-        allowSlideNext:true,
-        allowSlidePrev:true,
-        effect:'fade',
-        parallax:true
+        speed: 500,
+        allowSlideNext: true,
+        allowSlidePrev: true,
+        effect: 'fade',
+        parallax: true,
       };
 
       const swiper = new Swiper('.swiper', swiperOptions);
     }
-
   }
-
-
 
   loadImages() {
     try {
       this.getBannerUseCase.execute().subscribe((response: any) => {
-          if (response && Array.isArray(response.data)) {
-            this.images = response.data.map((item: any) => ({
-              title: item.title,
-              description: item.slogan,
-              imageUrl: this.assetsUrl + item.imagen.url,
-            }));
-          }
+        if (response && Array.isArray(response.data)) {
+          this.images = response.data.map((item: any) => ({
+            title: item.title,
+            description: item.slogan,
+            imageUrl: this.assetsUrl + item.imagen.url,
+          }));
+        }
       });
     } catch (error) {
       console.error('Error al cargar banners:', error);
@@ -107,4 +114,3 @@ interface Slide {
     [key: string]: any;
   };
 }
-
