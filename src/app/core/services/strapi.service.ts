@@ -23,7 +23,7 @@ export class StrapiService {
   }
 
   getProgramations(): Observable<Programation[]> {
-    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen`);
+    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen&[field][published_at]!=null`);
   }
 
   getTestimonials(): Observable<Testimonial[]> {
