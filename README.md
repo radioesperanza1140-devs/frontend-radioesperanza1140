@@ -30,39 +30,35 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 src/
 ├── app/
-│   ├── core/                     # Código compartido, servicios globales, guards
-│   │   ├── guards/
-│   │   ├── interceptors/
-│   │   ├── models/               # Modelos globales
-│   │   ├── services/             # Servicios compartidos
-│   │   └── utils/                # Utilidades generales
-│   ├── features/                 # Componentes standalone de cada sección
-│   │   ├── home/                 # Home
-│   │   │   ├── components/       # Componentes específicos de Home
-│   │   │   ├── pages/            # Páginas específicas
-│   │   │   ├── services/         # Servicios de Home
-│   │   │   └── home-page.component.ts
-│   │   ├── programming/          # Programación
-│   │   ├── testimonials/         # Testimonios
-│   │   ├── about-us/             # Nosotros
-│   │   └── contact/              # Contáctenos
-│   ├── shared/                   # Componentes, directivas y pipes reutilizables
-│   │   ├── components/
-│   │   ├── directives/
-│   │   ├── pipes/
-│   │   └── shared.module.ts
-│   ├── app.config.ts             # Configuración global del router
-│   └── app.component.ts          # Componente raíz (Standalone)
-├── assets/                       # Recursos estáticos
-│   ├── images/
-│   └── styles/
-│       ├── main.scss             # Estilos globales
-│       ├── variables.scss        # Variables de diseño
-│       └── mixins.scss           # Mixins reutilizables
-└── environments/                 # Configuración de entornos (dev, prod)
+│ ├── core/ # Código compartido, servicios globales, guards
+│ │ ├── guards/
+│ │ ├── interceptors/
+│ │ ├── models/ # Modelos globales
+│ │ ├── services/ # Servicios compartidos
+│ │ └── utils/ # Utilidades generales
+│ ├── features/ # Componentes standalone de cada sección
+│ │ ├── home/ # Home
+│ │ │ ├── components/ # Componentes específicos de Home
+│ │ │ ├── pages/ # Páginas específicas
+│ │ │ ├── services/ # Servicios de Home
+│ │ │ └── home-page.component.ts
+│ │ ├── programming/ # Programación
+│ │ ├── testimonials/ # Testimonios
+│ │ ├── about-us/ # Nosotros
+│ │ └── contact/ # Contáctenos
+│ ├── shared/ # Componentes, directivas y pipes reutilizables
+│ │ ├── components/
+│ │ ├── directives/
+│ │ ├── pipes/
+│ │ └── shared.module.ts
+│ ├── app.config.ts # Configuración global del router
+│ └── app.component.ts # Componente raíz (Standalone)
+├── assets/ # Recursos estáticos
+│ ├── images/
+│ └── styles/
+│ ├── main.scss # Estilos globales
+│ ├── variables.scss # Variables de diseño
+│ └── mixins.scss # Mixins reutilizables
+└── environments/ # Configuración de entornos (dev, prod)
 
-
-
-
-
-
+cambion en readme
