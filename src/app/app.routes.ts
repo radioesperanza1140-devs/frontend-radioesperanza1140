@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'programations', component: ProgramationComponent },
   { path: 'programations-list', component: ProgramationListComponent },
-  //{ path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'home' }
   ];
