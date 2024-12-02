@@ -13,7 +13,7 @@ import { RadioPlayerComponent } from "./features/radio-player/components/radio-p
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'web-radioesperanza-1140';
+  title = 'Radio Esperanza 1140am';
 
 
 

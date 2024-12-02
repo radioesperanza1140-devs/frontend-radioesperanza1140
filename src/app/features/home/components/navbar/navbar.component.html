@@ -34,7 +34,7 @@
           <li class="nav-item">
             <a
               class="nav-link btn_nav"
-              routerLink="home"
+              routerLink="/home"
               routerLinkActive="active_page"
               [routerLinkActiveOptions]="{ exact: true }"
               >Inicio</a
@@ -51,22 +51,23 @@
           <li class="nav-item">
             <a
               class="nav-link btn_nav"
-              routerLink="programations-list"
-              routerLinkActive="active_page"
-              >Programación</a
+              routerLink="/programations-list"
+              routerLinkActive="active_page">Programación</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link btn_nav"
-              routerLink="contact"
+              routerLink="/contact"
               routerLinkActive="active_page"
-              aria-disabled="true"
-              >Contacto</a
+              aria-disabled="true">Contacto</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link btn_donacion" aria-disabled="true">Donación</a>
+            <a class="nav-link btn_donacion" aria-disabled="true"
+              routerLink="/donacion"
+              routerLinkActive="active_page"
+              aria-disabled="true">Donación</a>
           </li>
         </ul>
       </div>
