@@ -72,7 +72,7 @@ export class SliderComponent implements AfterViewInit {
         speed: 500,
         allowSlideNext: true,
         allowSlidePrev: true,
-        effect: 'fade',
+        // effect: 'fade',
         parallax: true,
       };
 
