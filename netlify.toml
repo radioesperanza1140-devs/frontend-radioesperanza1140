@@ -1,8 +1,0 @@
-[build]
-  command = "ng build --configuration=staging"
-  publish = "dist/tu-app"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
