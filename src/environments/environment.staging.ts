@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://dev.radioesperanza1140.com/api',
-  assetsUrl:'https://dev.radioesperanza1140.com',
+  API_URL: 'https://dev.radioesperanza1140.com/api',
+  UPLOADS_URL: 'https://dev.radioesperanza1140.com',
 };

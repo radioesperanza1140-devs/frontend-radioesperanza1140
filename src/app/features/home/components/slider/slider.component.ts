@@ -26,7 +26,7 @@ import { environment } from '../../../../../environments/environment';
 })
 export class SliderComponent implements AfterViewInit {
   images: Slide[] = [];
-  assetsUrl = environment.assetsUrl;
+  assetsUrl = environment.UPLOADS_URL;
   private readonly swiperContainer =
     viewChild.required<ElementRef<SwiperContainer>>('swiperContainer');
 
@@ -67,7 +67,7 @@ export class SliderComponent implements AfterViewInit {
         slidesPerView: 1,
         // zoom: true,
         autoplay: {
-          delay: 2000,
+          delay: 8000,
         },
         speed: 500,
         allowSlideNext: true,

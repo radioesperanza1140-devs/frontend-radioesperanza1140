@@ -18,6 +18,8 @@
   background-size: cover;
   background-position: center;
   z-index: -1; 
+  
+  
 }
 
 /* Swiper wrapper and slide styles */
@@ -41,9 +43,10 @@
 /* Set the background image for each slide */
 .swiper-slide-img {
   position: absolute;
-  top: 140px;
+top: 0px;
   left: 0;
   width: 100%;
+ 
 
   object-fit: cover; 
  
@@ -102,6 +105,75 @@
 [data-swiper-parallax-scale="0.15"] {
   transform: scale(0.15);
 }
+
+@media(max-width:1400px){
+  
+
+  .swiper{
+    height: 550px;
+  }
+}
+
+@media(max-width:1198px){
+  
+
+  .swiper{
+    height: 450px;
+  }
+}
+
+@media(max-width:900px){
+  
+
+  .swiper{
+    height: 390px;
+  }
+}
+
+
+@media(max-width:760px){
+  
+
+  .swiper{
+    height: 310px;
+  }
+}
+
+@media(max-width:700px){
+  
+
+  .swiper{
+    height: 300px;
+  }
+}
+
+@media(max-width:600px){
+  
+
+  .swiper{
+    height: 250px;
+    margin-top: 10px;
+  }
+}
+
+@media(max-width:418px){
+  
+
+  .swiper{
+    height: 200px;
+    
+  }
+}
+
+
+@media(max-width:376px){
+  
+
+  .swiper{
+    height: 190px;
+  }
+}
+
 
 
 @media (min-width: 1024px) {

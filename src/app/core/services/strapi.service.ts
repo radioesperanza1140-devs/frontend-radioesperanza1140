@@ -10,7 +10,7 @@ import { RadioPlayer } from '../domain/models/radio-player.model';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,7 @@ export class StrapiService {
   }
 
   getProgramations(): Observable<Programation[]> {
-    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen&[field][published_at]!=null`);
+    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen`);
   }
 
   getTestimonials(): Observable<Testimonial[]> {

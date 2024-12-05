@@ -15,17 +15,20 @@ import { RouterLink } from '@angular/router';
 })
 export class ProgramationComponent {
   programs: Programation[] = [];
-  assetsUrl = environment.assetsUrl;
+  listPrograms: Programation[] = [];
+  assetsUrl = environment.UPLOADS_URL;
 
   constructor(private programationService: ProgramationService) {
     this.loadPrograms();
   }
 
   loadPrograms() {
-      try {
-        this.programationService.execute().subscribe((response: any) => {
+
+    try {
+      this.programationService.execute().subscribe({
+        next: (response: any) => {
           if (response && Array.isArray(response.data)) {
-            this.programs = response.data.map((item: any) => ({
+            this.listPrograms = response.data.map((item: any) => ({
               title: item.title,
               description: item.description,
               horario_emision_inicio: formatTimeTo12Hour(item.horario_emision_inicio),
@@ -33,24 +36,36 @@ export class ProgramationComponent {
               dias_EnEmision: item.dias_EnEmision,
               imagenUrl: this.assetsUrl + item.imagen.url,
             }));
+          } else {
+            console.warn('La respuesta no tiene el formato esperado.');
           }
+        },
+        error: (err) => {
+          console.error('Error al cargar programas:', err);
+        },
       });
-      } catch (error) {
-        console.error('Error al cargar banners:', error);
-      }
+
+      this.programs = this.listPrograms.slice(0,3);
+    } catch (error) {
+      console.error('Error inesperado al cargar programas:', error);
+    }
   }
+
 }
 
 function formatTimeTo12Hour(time24) {
-  // Parsear la hora en formato HH:mm:ss.SSS
-  const [hours, minutes] = time24.split(':').map(Number);
+  if(time24 != null){
+      // Parsear la hora en formato HH:mm:ss.SSS
+      const [hours, minutes] = time24.split(':').map(Number);
 
-  // Determinar si es AM o PM
-  const period = hours >= 12 ? 'PM' : 'AM';
+      // Determinar si es AM o PM
+      const period = hours >= 12 ? 'PM' : 'AM';
 
-  // Convertir la hora al formato de 12 horas
-  const hours12 = hours % 12 || 12;
+      // Convertir la hora al formato de 12 horas
+      const hours12 = hours % 12 || 12;
 
-  // Retornar en el formato 'h:mm a'
-  return `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
+      // Retornar en el formato 'h:mm a'
+      return `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
+  }
+  return null;
 }
