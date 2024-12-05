@@ -26,7 +26,7 @@ import { environment } from '../../../../../environments/environment';
 })
 export class SliderComponent implements AfterViewInit {
   images: Slide[] = [];
-  assetsUrl = environment.assetsUrl;
+  assetsUrl = environment.UPLOADS_URL;
   private readonly swiperContainer =
     viewChild.required<ElementRef<SwiperContainer>>('swiperContainer');
 

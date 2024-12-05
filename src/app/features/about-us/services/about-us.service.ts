@@ -9,6 +9,6 @@ export class AboutUsService {
   constructor(private http: HttpClient) {}
 
   getData() {
-    return this.http.get(`${environment.apiUrl}/about-us-page`);
+    return this.http.get(`${environment.API_URL}/about-us-page`);
   }
 }
