@@ -105,7 +105,7 @@
     padding: 20px;
     padding-top: 200px;
     width: 100%;
-    height: 500px;
+    height: 100vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -129,7 +129,7 @@
 
 .container_info{
     position: absolute;
-    top: -80px;
+    top: 98px;
     height: 180px;
     width: 1000px;
     background: #3ECCB5;
@@ -140,6 +140,24 @@
     align-items: center;
 
 }
+
+.subtitle_ayudador{
+    width: 100px
+}
+
+
+@media(max-width:950px){
+
+    .container_info{
+        
+        top: -20px;
+       
+    }
+
+ 
+
+}
+
 
 .title_numbers{
     font-weight: bold; font-size: 3rem
@@ -163,6 +181,7 @@
        gap: 20px;
     }
 
+  
     .container_info h2{
         font-size: 21px;
     }
