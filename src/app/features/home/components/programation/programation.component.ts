@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-programation',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],  
   templateUrl: './programation.component.html',
   styleUrl: './programation.component.scss',
 })
