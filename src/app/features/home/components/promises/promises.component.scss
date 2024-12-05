@@ -7,7 +7,8 @@
     gap: 100px;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-top: 120px;
+    margin-top: 120px; 
+    
   }
 
   .container_verse,
@@ -48,6 +49,14 @@
     font-weight: 500;
   }
 
+  @media(max-width:1500px){
+
+    .container_promises_and_verses{
+      margin-top: 0px;
+    }
+   
+  }
+
   /* Media query para pantallas más pequeñas */
   @media (max-width: 1280px) {
     /* Reducir el padding en la sección principal */
@@ -55,7 +64,7 @@
       padding: 20px; /* Menos padding en pantallas pequeñas */
       gap: 20px; /* Menos espacio entre los contenedores */
       margin-bottom: 10px;
-      margin-top: 80px;
+      // margin-top: 80px;
     }
 
     /* Reducir el tamaño de la fuente */

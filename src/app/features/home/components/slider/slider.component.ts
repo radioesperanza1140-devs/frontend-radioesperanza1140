@@ -67,7 +67,7 @@ export class SliderComponent implements AfterViewInit {
         slidesPerView: 1,
         // zoom: true,
         autoplay: {
-          delay: 2000,
+          delay: 8000,
         },
         speed: 500,
         allowSlideNext: true,
