@@ -7,6 +7,7 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
 import { PercentageSectionComponent } from '../../components/percentage-section/percentage-section.component';
 import { ProgramationComponent } from '../../components/programation/programation.component';
 import { DonationComponent } from "../../components/donation/donation.component";
+import { FooterComponent } from "../../../../shared/footer/footer.component";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ import { DonationComponent } from "../../components/donation/donation.component"
     TestimonialsComponent,
     ProgramationComponent,
     PercentageSectionComponent,
-    DonationComponent
+    DonationComponent,
+    FooterComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',

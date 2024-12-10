@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AboutUsService } from '../../services/about-us.service';
+import { FooterComponent } from "../../../../shared/footer/footer.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent, CommonModule],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss',
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AboutUsComponent {
   mision = '';
