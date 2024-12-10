@@ -2,20 +2,27 @@
     height: auto;
     width: 100%;
 
-     padding: 10px;
-     margin: auto;
+     padding: 40px 10px 40px 10px;
+     margin: 0 auto;
      display: flex;
      justify-content: center;
-     align-items: flex-start;
-     flex-wrap: wrap;
-     gap: 50px;
-     margin-bottom: 100px;
-
+     align-items: center;
+     flex-wrap: wrap; 
 }
 
+swiper-container {
+    --swiper-pagination-color: #000 !important;
+    --swiper-pagination-bullet-inactive-color: #000 !important;
+    
+  
+    
+  
+  }
+
 .text_testimonio{
-    margin-bottom: 20px;
+  
     font-size: 40px;
+    margin-top: 20px;
 }
 
 .container_principal{
@@ -26,18 +33,47 @@
 
 }
 .card_testimonial{
-    height: 450px;
+    height: 500px;
     width: 380px;
     background: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 150px 10px 10px 10px;
+    padding: 120px 20px 10px 20px;
     border-radius: 20px;
     overflow: hidden;
+    margin: 10px;
+    
+}
+
+.card_testimonial p{
+    font-size: 15px;
 }
 .svg_wave{
     position: absolute;
 }
 
+
+
+
+swiper-container {
+
+margin: 0 auto;
+  height: 520px;
+  overflow: hidden; /* Evita que cualquier contenido se desborde */
+  box-sizing: border-box; /* Considera el padding dentro del tamaño total */
+}
+
+/* Asegura que los slides tengan el tamaño correcto */
+swiper-slide {
+  flex: 0 0 auto; /* Evita que los slides se estiren o reduzcan */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ padding: 0px;
+
+
+ 
+}

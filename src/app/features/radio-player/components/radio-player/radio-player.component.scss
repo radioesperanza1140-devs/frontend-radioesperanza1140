@@ -1,23 +1,8 @@
-// @import "../../../../../../node_modules/compass-mixins/lib/compass";
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-
-#navbarRadioPlayer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .radio-player {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 14px 25px 14px 25px;
   background-color: #232323; /* Color corporativo */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -27,27 +12,45 @@ body {
   z-index: 100;
 }
 
-.col-2, .col-8 {
+.container_player_and_vol {
   display: flex;
-  justify-content: center; /* Centrar contenido horizontalmente */
-  align-items: center; /* Centrar contenido verticalmente */
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 .volume-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex: 1;
+  margin-left: 10px; /* Espaciado entre el botón Play y el control de volumen */
 }
 
-input[type="range"] {
-  width: 100px;
+.pulse-button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background: rgb(10, 137, 137);
   cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(90, 212, 212, 0.5);
+  animation: pulse 1.5s infinite;
 }
 
-.volume{
-  background: #ffffff;
-  color: #40cdb5;
+.pulse-button:hover {
+  animation: none;
+}
+
+.volume {
+  
+  color: white;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -60,57 +63,86 @@ input[type="range"] {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-input[type='range'] {
-  overflow: hidden;
-  width: 100px;
-  color: #40cdb5;
-  background-color: #9a905d;
-}
-.volume-slide{
-  background: #ffffff;
-  color: #40cdb5;
-  border: none;
+
+input[type="range"] {
+  -webkit-appearance: none; /* Elimina el estilo predeterminado */
+  appearance: none;
+  width: 150px; /* Haz la barra más larga */
+  height: 4px; /* Define el grosor de la barra */
+  background: white; /* Cambia el color de la barra a blanco */
+  border-radius: 5px; /* Opcional: Redondea los bordes de la barra */
   cursor: pointer;
-  width: 70%;
 }
 
-.pulse-button {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: lighter;
-  font-family: "Trebuchet MS", sans-serif;
-  text-transform: uppercase;
-  align-items: center;
-  justify-content: center;
-  line-height: 100px;
-  letter-spacing: -1px;
-  color: white;
-  border: none;
-  border-radius: 50%;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Elimina el estilo predeterminado */
+  appearance: none;
+  width: 15px; /* Tamaño del control deslizante */
+  height: 15px;
+  background: #fff; /* Color del control deslizante */
+  border-radius: 50%; /* Redondea el control deslizante */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombras para efecto */
+  margin-top: -6px; /* Ajusta verticalmente el control deslizante */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
   background: #40cdb5;
+  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(90, 212, 212, 0.5);
-  animation: pulse 1.5s infinite;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.pulse-button:hover {
-  animation: none;
+input[type="range"]::-ms-thumb {
+  width: 15px;
+  height: 15px;
+  background: #40cdb5;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(0.9);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
-  }
-  100% {
-    transform: scale(0.9);
-    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
-  }
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px; /* Grosor de la barra */
+  background: white; /* Color de la barra */
+  border-radius: 5px;
+}
+
+/* Personaliza para navegadores como Firefox */
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Personaliza para navegadores de Microsoft */
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: white;
+  border-radius: 5px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: white;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: #a9a9a9; /* Fondo gris para la parte activa */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border: 2px solid #b3b3b3; /* Borde gris claro */
 }
 
 
