@@ -1,0 +1,84 @@
+.container_principal {
+    width: 100%;
+    height: 640px;
+    background-image: url("/porcentual_image.jpeg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    z-index: 0; 
+    padding-bottom: 80px;
+}
+
+.container_principal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Capa negra semitransparente */
+    z-index: 1; /* La capa negra estará por encima del contenedor */
+}
+
+.content{
+    text-align: center;
+    padding: 10px 20px 0px 20px;
+    width: 100%;
+    // background: red;
+    height: auto;
+   
+    
+}
+
+.title{
+    font-size: 64px;
+    max-width: 500px;
+    width: 100%;
+    font-weight: 800;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+p{
+    font-weight: 400;
+    font-size: 30px;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    padding-bottom: 50px;
+}
+
+.container_principal .content {
+    position: relative;
+    z-index: 2; /* El contenido del contenedor (texto) se coloca por encima de la capa negra */
+}
+
+.btn_join_me{
+    background: #3ECCB5;
+    text-decoration: none;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+@media(max-width:700px){
+    .title{
+        font-size: 44px;
+       
+     
+    }
+    
+    p{
+       
+        font-size: 20px;
+    
+    }
+}

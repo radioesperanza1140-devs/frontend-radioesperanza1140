@@ -1,0 +1,26 @@
+.container_principal{
+  padding-top: 140px;
+  width: 100%;
+  text-align: center;
+  height: 100vh; /* Asegura que el contenedor ocupe la altura total */
+  overflow-y: scroll; /* Permite el desplazamiento vertical */
+  scroll-snap-type: y mandatory;
+}
+
+.donaciones_container{
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
+}
+.text_testimonio{
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+
+.background_img_container{
+
+
+}

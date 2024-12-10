@@ -1,0 +1,25 @@
+<div class="program-container">
+  <h2 class="text_title_programacion">Programas</h2>
+  <div class="program-grid">
+    <!-- Cards -->
+    <div class="program-card" *ngFor="let program of programs">
+      <div class="program-info">
+        <h3 class="program-name">{{ program.title }}</h3>
+        <p class="program-schedule">{{ program.dias_EnEmision }}</p>
+        <p class="program-time">
+          {{ program.horario_emision_inicio }} -
+          {{ program.horario_emision_fin }}
+        </p>
+      </div>
+      <div class="container_img">
+        <img class="program-image" [src]="program.imagenUrl" alt="program" />
+      </div>
+      <a class="program-button">Conoce más</a>
+    </div>
+  </div>
+  <p class="view-more">
+    <a class="view-more" routerLink="/programations-list"
+      >Programación completa</a
+    >
+  </p>
+</div>
