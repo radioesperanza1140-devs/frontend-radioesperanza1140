@@ -8,8 +8,8 @@
     flex-wrap: wrap;
     align-items: flex-start;
     background: #f8f9fa;
-  
-    
+
+
   }
 
   // .container_promises_and_verses::after {
@@ -22,7 +22,7 @@
   //   background: rgba(0, 0, 0, 0.2); /* Capa oscura semitransparente */
   //   z-index: 1; /* Asegura que el overlay quede por encima del fondo */
   // }
-  
+
   .container_promises_and_verses > * {
     position: relative; /* Asegura que los hijos estén por encima del ::after */
     z-index: 2;
@@ -39,8 +39,8 @@
     opacity: 0; /* Oculto inicialmente */
     transform: translateX(100px); /* Desplaza desde la derecha */
     transition: all 0.8s ease; /* Transición suave */
-    
-  
+
+
   }
 
   .container_promise {
@@ -114,7 +114,7 @@
 }
 
 /*blockquote p::before {
-    content: "\f095"; 
+    content: "\f095";
     font-family: FontAwesome;
    display: inline-block;
    padding-right: 6px;
@@ -126,11 +126,11 @@
   position: absolute;
   font-family: 'FontAwesome';
   top: 0;
-  
+
   content:"\f10d";
   font-size: 200px;
   color: rgba(0,0,0,0.1);
-   
+
 }
 
 .container_promise::after {
@@ -146,12 +146,10 @@
     // padding-bottom: 10px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
 .otro-blockquote{
   font-size: 1.4em;
   width:60%;
   margin:50px auto;
-  font-family:Open Sans;
   font-style:italic;
   color: #555555;
   padding:1.2em 30px 1.2em 75px;
