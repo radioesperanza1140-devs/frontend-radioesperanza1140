@@ -37,6 +37,7 @@
               routerLink="/home"
               routerLinkActive="active_page"
               [routerLinkActiveOptions]="{ exact: true }"
+              data-bs-dismiss="offcanvas"
               >Inicio</a
             >
           </li>
@@ -45,6 +46,7 @@
               class="nav-link btn_nav"
               routerLink="about"
               routerLinkActive="active_page"
+              data-bs-dismiss="offcanvas"
               >Nosotros</a
             >
           </li>
@@ -53,6 +55,7 @@
               class="nav-link btn_nav"
               routerLink="/programations-list"
               routerLinkActive="active_page"
+              data-bs-dismiss="offcanvas"
               >Programación</a
             >
           </li>
@@ -61,17 +64,16 @@
               class="nav-link btn_nav"
               routerLink="/contact"
               routerLinkActive="active_page"
-              aria-disabled="true"
+              data-bs-dismiss="offcanvas"
               >Contacto</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link btn_donacion"
-              aria-disabled="true"
               routerLink="/donacion"
               routerLinkActive="active_page"
-              aria-disabled="true"
+              data-bs-dismiss="offcanvas"
               >Donación</a
             >
           </li>
