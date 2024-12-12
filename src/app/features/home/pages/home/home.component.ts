@@ -8,6 +8,7 @@ import { PercentageSectionComponent } from '../../components/percentage-section/
 import { ProgramationComponent } from '../../components/programation/programation.component';
 import { DonationComponent } from "../../components/donation/donation.component";
 import { FooterComponent } from "../../../../shared/footer/footer.component";
+import { PresentationComponent } from "../../components/presentation/presentation.component";
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ import { FooterComponent } from "../../../../shared/footer/footer.component";
     ProgramationComponent,
     PercentageSectionComponent,
     DonationComponent,
-    FooterComponent
+    FooterComponent,
+    PresentationComponent
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',

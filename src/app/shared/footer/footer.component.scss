@@ -1,3 +1,4 @@
+@import "../../../variables.scss";
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +45,7 @@ footer {
 }
 
 .footer-sitemap ul li a:hover {
-  color: #40CDB5;
+  color: $primaryColor;
 }
 
 .footer-social a {
@@ -56,7 +57,7 @@ footer {
 }
 
 .footer-social a:hover {
-  color: #40CDB5;
+  color: $primaryColor;
 }
 
 @media (max-width: 768px) {
@@ -73,24 +74,3 @@ footer {
       margin: 0 5px;
   }
 }
-// footer {
-//   background-color: #3ECCB5;
-//   color: black;
-//   text-align: center;
-//   padding: 20px;
-//   width: 100%;
-//   height: 400px;
-//   text-align: justify;
-//   justify-content: center;
-//   gap: 40px;
-//   display: flex;
-// }
-
-// footer h3 {
-//   color: #000000;
-// }
-
-// footer a {
-//   color: #000000;
-//   text-decoration: none;
-// }

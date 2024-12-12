@@ -1,4 +1,4 @@
-
+@import "../../../../../variables.scss";
 /* Contenedor principal */
 .program-container {
   text-align: center;
@@ -46,7 +46,7 @@
     rgba(62, 204, 181, 0.9) 100%
   );
   height: 420px;
-  
+
   align-items: center;
 }
 
@@ -75,10 +75,10 @@
 .container_img{
   width: 200px;
 
- 
+
   overflow: hidden;
-  
- 
+
+
 }
 
 /* Imagen */
@@ -116,7 +116,7 @@
 .view-more {
   margin-top: 30px;
   font-size: 1.2rem;
-  color: #40cdb5;
+  color: $primaryColor;
   cursor: pointer;
 }
 
