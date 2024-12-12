@@ -1,0 +1,43 @@
+.container_presentation {
+  padding: 45px 48px 45px 48px;
+  width: 100%;
+  gap: 100px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.container_img-left{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.div-presentation-text{
+  padding-top: 200px;
+  width: 600px;
+}
+
+.div-title{
+  font-size: 48px;
+  line-height: .92;
+  text-align: left;
+  font-weight:700;
+}
+.paragrah-text{
+  padding-top: 12px;
+  padding-bottom: 24px;
+  font-size: var(--font-size-4);
+}
+
+.app-download-apple{
+
+
+}
+.app-download-playstore{
+
+
+}
+
+
