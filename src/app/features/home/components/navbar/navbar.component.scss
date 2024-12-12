@@ -1,9 +1,8 @@
-
-
+@import "../../../../../variables.scss";
 
 .nav_style{
-    
- 
+
+
   font-optical-sizing: auto;
   padding: 5px 20px 5px 20px;
 
@@ -11,7 +10,7 @@
 }
 
 .btn_donacion{
-    background: #3ECCB5;
+    background: $primaryColor;
     color: #fff;
     border-radius: 5px;
     width: 125px;
@@ -27,24 +26,24 @@
 @media (max-width: 990px) {
     .btn_donacion {
         justify-content: flex-start;  /* Alinea el texto a la izquierda */
-        padding-left: 10px;  
-        
+        padding-left: 10px;
+
     }
 }
 
 .btn_nav{
     color: #0d1321;
     font-size: 15px;
-    
+
 }
 
 .menu{
     // background: red;
     display: flex;
     gap: 30px;
-  
+
 }
 
 .active_page{
-  color:#3ECCB5
+  color:$primaryColor
 }
