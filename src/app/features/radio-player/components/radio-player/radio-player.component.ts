@@ -67,8 +67,18 @@ export class RadioPlayerComponent implements OnInit  {
     this.currentPrograma(startTime, endTime);
   }
 
-
   currentPrograma(startTime:string, endTime:string){
+    this.program = {
+        id:'',
+        documentId:'',
+        imagenUrl: 'logo.png',
+        title: 'Radio Esperanza 1140am',
+        horario_emision_inicio: '',
+        horario_emision_fin:'',
+        description:'',
+        dias_EnEmision:''
+    };
+
     this.currentProgramation.execute(startTime, endTime).subscribe({
       next: (response: any) => {
         if (response && Array.isArray(response.data)) {

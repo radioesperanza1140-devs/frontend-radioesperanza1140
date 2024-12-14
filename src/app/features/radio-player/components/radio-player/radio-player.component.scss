@@ -143,26 +143,36 @@ input[type="range"]::-moz-range-progress {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  border: 2px solid #b3b3b3; /* Borde gris claro */
+  border: 2px solid #b3b3b3;
 }
 
-.circle {
-  width: 50px; /* Ancho del círculo */
-  height: 50px;/* Alto del círculo (igual al ancho para mantenerlo redondo) */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
-  display: flex; /* Para centrar la imagen */
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center;/* Centrar verticalmente */
+.program-div {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
 }
 
-.circle img {
-  width: 100%; /* Ajusta el tamaño de la imagen al tamaño del contenedor */
-  height: auto; /* Mantén la proporción de la imagen */
+.program-div img {
+  width: 100%;
+  height: auto;
+  padding: 5px 5px 5px 5px;
 }
 
 .sub-title{
   color:#fff;
   font-size: 14px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .info-programa{
