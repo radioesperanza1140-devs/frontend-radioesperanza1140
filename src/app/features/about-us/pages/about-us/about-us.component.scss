@@ -13,6 +13,14 @@
 
 }
 
+.container_vision{
+
+    padding-top: 50px;
+  
+    padding-bottom: 50px;
+   
+}
+
 
 
 .container_text_vision{
@@ -20,11 +28,13 @@
     width: 100%;
     height: auto;
     padding: 0px 20px 0px 20px;
+    height: auto;
+    padding: 0px 20px 0px 20px;
 
     margin: auto;
     font-size: 22px;
     text-align: center;
-    // background: red;
+    // background: red; 
 }
 
 .container_text_mision{
@@ -40,22 +50,13 @@
 
 
 
+
 .container_mision{
     padding-top: 50px;
     padding-bottom: 50px;
-.container_mision{
-
-    padding-top: 80px;
-    padding-bottom: 80px;
-
-
+    background: #343434
 }
 
-.container_mision{
-    background: #343434;
-
-
-}
 
 @media(max-width:860px){
     .container_text_vision{
@@ -213,4 +214,4 @@
 }
 
 
-}
+
