@@ -5,7 +5,8 @@ import { ContactComponent } from './features/contact/pages/contact/contact.compo
 import { ProgramationComponent } from './features/home/components/programation/programation.component';
 import { ProgramationListComponent } from './features/programations/pages/programation-list/programation-list.component';
 import { DonationComponent } from './features/donation/pages/donation.component';
-
+import { ProgramationDetailComponent } from './features/programations/pages/programation-detail/programation-detail.component';
+ProgramationDetailComponent;
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,5 +15,7 @@ export const routes: Routes = [
   { path: 'programations', component: ProgramationComponent },
   { path: 'programations-list', component: ProgramationListComponent },
   { path: 'donacion', component: DonationComponent },
-  { path: '**', redirectTo: 'home' }
-  ];
+  { path: 'detail-programation/:id', component: ProgramationDetailComponent },
+
+  { path: '**', redirectTo: 'home' },
+];

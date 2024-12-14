@@ -1,1 +1,48 @@
-<p>programation-list works!</p>
+<div class="container_imagen">
+  <div class="container_title">
+    <h2 class="title">Programación</h2>
+  </div>
+</div>
+
+<!-- Mostrar los programas una vez que isLoading es false -->
+<div class="container_programation">
+  <div
+    *ngIf="isLoading"
+    style="
+      height: 100%;
+      width: 100%;
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    "
+  >
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div *ngIf="!isLoading" class="container_cards">
+    <div
+      class="program-card"
+      *ngFor="let program of programs"
+      [ngStyle]="{ 'background-image': 'url(' + program.imagenUrl + ')' }"
+    >
+      <div class="blur-overlay">
+        <h3 class="program-name">{{ program.title }}</h3>
+
+        <p class="program-schedule">{{ program.dias_EnEmision }}</p>
+        <p class="program-time">
+          {{ program.horario_emision_inicio }} -
+          {{ program.horario_emision_fin }}
+        </p>
+        <a
+          class="program-button"
+          [routerLink]="['/detail-programation', program.id]"
+        >
+          Conoce más
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

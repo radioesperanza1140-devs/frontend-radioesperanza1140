@@ -1,25 +1,49 @@
 <div class="program-container">
-  <h2 class="text_title_programacion">Conoce nuestra Programación</h2>
-  <div class="program-grid">
-    <!-- Cards -->
-    <div class="program-card" *ngFor="let program of programs">
-      <div class="program-info">
+  <h2 class="text_title_programacion">Programas</h2>
+
+  <div
+    *ngIf="isLoading"
+    style="
+      height: 100%;
+      width: 100%;
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Mostrar los programas una vez que isLoading es false -->
+  <div *ngIf="!isLoading" class="program-grid">
+    <div
+      class="program-card"
+      *ngFor="let program of programs"
+      [ngStyle]="{ 'background-image': 'url(' + program.imagenUrl + ')' }"
+    >
+      <div class="blur-overlay">
         <h3 class="program-name">{{ program.title }}</h3>
         <p class="program-schedule">{{ program.dias_EnEmision }}</p>
         <p class="program-time">
           {{ program.horario_emision_inicio }} -
           {{ program.horario_emision_fin }}
         </p>
+        <a
+          [routerLink]="['/detail-programation', program.id]"
+          class="program-button"
+          >Conoce más</a
+        >
       </div>
-      <div class="container_img">
-        <img class="program-image" [src]="program.imagenUrl" alt="program" />
-      </div>
-      <a class="program-button">Conoce más</a>
     </div>
   </div>
-  <p class="view-more">
+
+  <div class="container_view_more">
     <a class="view-more" routerLink="/programations-list"
       >Programación completa</a
     >
-  </p>
+  </div>
 </div>
