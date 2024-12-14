@@ -5,6 +5,6 @@ export interface Programation {
   description: string;
   horario_emision_inicio: string;
   horario_emision_fin: string;
-  dias_EnEmision: Date;
+  dias_EnEmision: string;
   imagenUrl: string;
 }
