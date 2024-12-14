@@ -146,4 +146,30 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid #b3b3b3; /* Borde gris claro */
 }
 
+.circle {
+  width: 50px; /* Ancho del círculo */
+  height: 50px;/* Alto del círculo (igual al ancho para mantenerlo redondo) */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+  display: flex; /* Para centrar la imagen */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center;/* Centrar verticalmente */
+}
 
+.circle img {
+  width: 100%; /* Ajusta el tamaño de la imagen al tamaño del contenedor */
+  height: auto; /* Mantén la proporción de la imagen */
+}
+
+.sub-title{
+  color:#fff;
+  font-size: 14px;
+}
+
+.info-programa{
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}

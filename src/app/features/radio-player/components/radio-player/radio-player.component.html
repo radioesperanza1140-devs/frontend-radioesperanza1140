@@ -1,7 +1,13 @@
 <div class="radio-player">
-  <div style="color: aliceblue">
-    <img class="rounded_img" src="">
+  <div class="info-programa">
+    <div class="circle">
+      <img  [src]="program?.imagenUrl" alt="{{program?.title}}">
+    </div>
+    <div class="text-program">
+      <div class="sub-title">{{programationInfo}}</div>
+    </div>
   </div>
+
 
   <div class="container_player_and_vol">
     <button class="pulse-button" (click)="togglePlay(audio)">
