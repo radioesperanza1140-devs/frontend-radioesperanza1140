@@ -7,6 +7,7 @@ import { Programation } from '../domain/models/programation.mode';
 import { Testimonial } from '../domain/models/testimonial.model';
 import { environment } from '../../../environments/environment';
 import { RadioPlayer } from '../domain/models/radio-player.model';
+import { Contacto } from '../domain/models/contacto';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
@@ -26,7 +27,7 @@ export class StrapiService {
     return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen`);
   }
 
-  getCurrentProgramation(startTime: Date, endTime: Date): Observable<Programation> {
+  getCurrentProgramation(startTime: string, endTime: string): Observable<Programation> {
     return this.http.get<Programation>(`${this.apiUrl}/programations?populate=imagen&filters[horario_emision_inicio][$gte]=${startTime}&filters[horario_emision_fin][$lte]=${endTime}`);
   }
 
@@ -36,5 +37,9 @@ export class StrapiService {
 
   getRadioStreaming(): Observable<RadioPlayer> {
     return this.http.get<RadioPlayer>(`${this.apiUrl}/radio-player`);
+  }
+
+  addContact(contactData: Contacto): Observable<any> {
+    return this.http.post(`${this.apiUrl}/contactos`, { data: contactData });
   }
 }

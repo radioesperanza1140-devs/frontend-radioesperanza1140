@@ -1,4 +1,54 @@
-<div class="">
-<p>Contactenos</p>
+<div class="contact-container">
+  <div class="left-col">
+  </div>
+  <div class="right-col">
+    <div class="theme-switch-wrapper">
 
+    </div>
+
+    <h1>Contactenos</h1>
+    <p>Queremos ser tu aliado estrategico para tu publicidad!</p>
+
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fullname">Nombre completo</label>
+          <input id="fullname" type="text" formControlName="fullname" placeholder="Nombre completo"/>
+          <div *ngIf="form.get('fullname')?.invalid && form.get('fullname')?.touched">
+            <small *ngIf="form.get('fullname')?.errors?.['required']">Nombre  es requerido.</small>
+            <small *ngIf="form.get('fullname')?.errors?.['minlength']">Nombre debe ser al menos 3 caracteres.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" type="email" formControlName="email" placeholder="Email" />
+          <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+            <small *ngIf="form.get('email')?.errors?.['required']">Email es requerido.</small>
+            <small *ngIf="form.get('email')?.errors?.['email']">Formato Invalido para email .</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="asunto">Asunto:</label>
+          <input id="asunto" type="text" formControlName="asunto" placeholder="Asunto" />
+          <div *ngIf="form.get('asunto')?.invalid && form.get('asunto')?.touched">
+            <small *ngIf="form.get('asunto')?.errors?.['required']">Asunto es requerido.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje:</label>
+          <textarea class="form-control" id="mensaje" rows="3" formControlName="mensaje"  placeholder="Mensaje" ></textarea>
+          <div *ngIf="form.get('mensaje')?.invalid && form.get('mensaje')?.touched">
+            <small *ngIf="form.get('mensaje')?.errors?.['required']">Mensaje es requerido.</small>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid">Enviar</button>
+      </form>
+    </div>
+  </div>
 </div>
+
+<app-footer></app-footer>
