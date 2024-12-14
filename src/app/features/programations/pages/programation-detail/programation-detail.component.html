@@ -1,0 +1,96 @@
+<div class="container_principal_info">
+  <div class="container_title_and_image">
+    <!-- Mostrar mensaje de carga mientras isLoading sea true -->
+
+    <div *ngIf="isLoading" class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+
+    <div *ngIf="!isLoading" class="container_title">
+      <h2 class="title">{{ program.title }}</h2>
+      <p class="text_days">{{ program.dias_EnEmision }}</p>
+      <p class="program-time">{{ inicio }} - {{ fin }}</p>
+    </div>
+
+    <div
+      *ngIf="!isLoading"
+      class="program-card"
+      [ngStyle]="{ 'background-image': 'url(' + imgUrl + ')' }"
+    >
+      <div class="blur-overlay"></div>
+    </div>
+  </div>
+
+  <div class="container_description">
+    <p>{{ program.description }}</p>
+  </div>
+</div>
+
+<div class="secundary_container">
+  <div class="container_principal_form">
+    <div class="container_form">
+      <div class="container_title">
+        <h2>Escribe tu <span style="color: #3eccb5">petición</span></h2>
+      </div>
+      <form class="form">
+        <!-- Campo de Nombre -->
+        <div class="form-group container_input_name">
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-control name"
+            placeholder="Ingresa tu nombre"
+            required
+          />
+        </div>
+
+        <!-- Campos de Correo Electrónico y Petición -->
+        <div class="email_and_peticion">
+          <div class="form-group container_email">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control email"
+              placeholder="Ingresa tu correo electrónico"
+              required
+            />
+          </div>
+
+          <div class="form-group container_slect">
+            <select
+              id="peticion"
+              name="peticion"
+              class="form-control select_peticion"
+              required
+            >
+              <option value="opcion1">Opción 1</option>
+              <option value="opcion2">Opción 2</option>
+              <option value="opcion3">Opción 3</option>
+              <option value="opcion4">Opción 4</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Campo de Petición (más grande) -->
+        <div class="form-group">
+          <textarea
+            id="detalle-peticion"
+            name="detalle-peticion"
+            class="form-control input_description"
+            rows="4"
+            placeholder="Escribe los detalles de tu petición"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Botón de Enviar -->
+        <div class="container_btn">
+          <button type="submit" class="btn_enviar">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

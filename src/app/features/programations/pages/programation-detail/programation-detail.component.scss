@@ -1,0 +1,333 @@
+.container_principal_info{
+    height: auto;
+    min-height: 600px;
+    background: #343434;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 150px;
+}
+
+.container_description{
+  width: 100%;
+  max-width: 950px;
+  color: #fff;
+text-align: center;
+font-size: 19px;
+padding: 10px;
+}
+
+.container_title_and_image{
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    padding-top: 50px;
+   
+}
+
+.container_title{
+    // width: 450px;
+    padding: 5px;
+    height: auto;
+    text-align: left;
+    
+  
+}
+
+.blur-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; /* Cubre solo la mitad del div */
+    background: rgba(0, 0, 0, 0.4); /* Color de fondo semi-transparente */
+    backdrop-filter: blur(25px); /* Aplica el desenfoque */
+    
+    display: flex;
+    flex-direction: column;
+   border-bottom-left-radius:  19px;;
+  
+   border-bottom-right-radius: 19px;
+  
+  
+    padding: 10px 0px 0px 15px;
+}
+
+.program-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 19px;
+    border: 2px solid   #fff;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+
+  
+
+.program-time{
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
+}
+
+.title{
+    font-size: 55px;
+    font-weight: 900;
+    color: #fff;
+
+}
+
+.text_days{
+    font-weight: 500;
+    font-size: 40px;
+    color: #fff;
+}
+
+
+// =======================loader
+
+.lds-ripple,
+.lds-ripple div {
+  box-sizing: border-box;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+
+
+@media(max-width:1117px){
+    .container_title_and_image{
+       
+        
+      text-align: center;
+      gap: 20px;
+    }
+
+    
+    .program-time, .text_days{
+        text-align: center;
+       
+    }
+
+  
+}
+
+@media(max-width:680px){
+    .title{
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .program-time, .text_days{
+     
+        font-size: 25px;
+    }
+}
+
+
+.secundary_container{
+
+  height: 100vh;
+  width: 100%;
+  position: relative;
+ 
+}
+
+@media(max-width:750px){
+  .secundary_container{
+    margin-bottom: 120px;
+  }
+}
+
+.container_principal_form{
+
+  position: absolute;
+  top: -10%;
+  width: 100%;
+  height: auto;
+  padding: 0px 15px;
+
+
+}
+
+ .name{
+  height: 60px;
+  width: 100%;
+}
+
+.email{
+  height: 60px;
+  width: 100%;
+}
+
+.container_email{
+  max-width: 340px;
+  width: 100%;
+}
+
+.container_slect{
+ 
+  max-width: 340px;
+  width: 100%;
+}
+
+.select_peticion {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  height: 60px; /* Asegura que tenga una altura consistente con otros campos */
+  border: 1px solid #ccc; /* Opcional: un borde visible */
+  border-radius: 5px; /* Opcional: estiliza los bordes */
+  padding: 0 10px; /* Espaciado interno */
+  box-sizing: border-box; /* Incluye `padding` en el cálculo del ancho */
+ 
+}
+
+
+.container_input_name{
+  max-width: 700px;
+  width: 100%;
+}
+
+.input_description{
+  height: 200px;
+  resize: none;
+}
+
+.container_btn{
+  width: 100%;
+text-align: center;
+}
+
+.btn_enviar{
+  width: 200px;
+  background: #3ECCB5;
+  color: #fff;
+  height: 57px  ;
+  font-weight: 700;
+  font-size: 25px;
+
+}
+
+
+
+.form-control{
+  background: #FFFFFF;
+  border: none;
+  border-radius: 0px;
+  font-size: 18px;
+}
+
+.email_and_peticion{
+  display: flex;
+  gap: 20px;
+  // background: red;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+
+.select_peticion {
+  appearance: auto; /* Habilita el estilo predeterminado del navegador */
+  -webkit-appearance: auto; /* Para navegadores basados en WebKit */
+  -moz-appearance: auto; /* Para Firefox */
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.container_form{
+  max-width: 1014px;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  background: #F5F5F5;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-top: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 40px;
+
+}
+
+.container_title h2{
+ font-size: 40px;
+ font-weight: 900;
+}
