@@ -1,19 +1,26 @@
 <div class="radio-player">
   <div class="info-programa">
     <div class="program-div">
-      <img  [src]="program?.imagenUrl" alt="{{program?.title}}">
+      <img [src]="program?.imagenUrl" alt="{{ program?.title }}" />
     </div>
     <div class="text-program">
-      <div class="sub-title">{{program.title}}</div>
-      <div class="sub-title">{{programationInfo}}</div>
+      <div class="sub-title">{{ program.title }}</div>
+      <div class="sub-title">{{ programationInfo }}</div>
     </div>
   </div>
-
 
   <div class="container_player_and_vol">
     <button class="pulse-button" (click)="togglePlay(audio)">
       <i class="fas" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
     </button>
+
+    <div class="live">
+      <div
+        class="circle"
+        [ngClass]="{ playing: isPlaying, paused: !isPlaying }"
+      ></div>
+      <p>En vivo</p>
+    </div>
 
     <div class="volume-wrapper">
       <button class="volume">
