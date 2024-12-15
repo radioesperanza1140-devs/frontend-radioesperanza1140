@@ -1,15 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-
-
-.container_principal{
-  height: auto;
-
-  padding: 40px;
- 
+body {
+  position: relative;
 }
 
+.container_whatsapp {
+  position: fixed; /* Cambiado a fixed */
+ 
+  width: 60px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 50%;
+  bottom: 110px; /* A 20px desde el borde inferior */
+  right: 60px; /* A 20px desde el borde derecho */
+  z-index: 100;
+}
+
+.container_whatsapp img{
+  width: 100%;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container_principal {
+  height: auto;
+  padding: 40px;
+}
+
+
+@media(max-width:550px){
+  .container_whatsapp{
+    width: 45px;
+    height: 45px;
+    bottom: 145px;
+    right: 30px;
+  }
+}
