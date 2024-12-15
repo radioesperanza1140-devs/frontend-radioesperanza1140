@@ -7,4 +7,5 @@ export interface Programation {
   horario_emision_fin: string;
   dias_EnEmision: string;
   imagenUrl: string;
+  orden: number;
 }

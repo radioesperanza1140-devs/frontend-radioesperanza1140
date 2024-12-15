@@ -8,9 +8,11 @@ import { Testimonial } from '../domain/models/testimonial.model';
 import { environment } from '../../../environments/environment';
 import { RadioPlayer } from '../domain/models/radio-player.model';
 import { Contacto } from '../domain/models/contacto';
+import { Peticion } from '../domain/models/peticion.model';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
+
   private apiUrl = environment.API_URL;
 
   constructor(private http: HttpClient) {}
@@ -24,7 +26,7 @@ export class StrapiService {
   }
 
   getProgramations(): Observable<Programation[]> {
-    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen`);
+    return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen&sort[0]=orden:asc`);
   }
 
   getCurrentProgramation(startTime: string, endTime: string): Observable<Programation> {
@@ -32,7 +34,7 @@ export class StrapiService {
   }
 
   getTestimonials(): Observable<Testimonial[]> {
-    return this.http.get<Testimonial[]>(`${this.apiUrl}/testimonials`);
+    return this.http.get<Testimonial[]>(`${this.apiUrl}/testimonials?sort[0]=id:desc`);
   }
 
   getRadioStreaming(): Observable<RadioPlayer> {
@@ -41,5 +43,9 @@ export class StrapiService {
 
   addContact(contactData: Contacto): Observable<any> {
     return this.http.post(`${this.apiUrl}/contactos`, { data: contactData });
+  }
+
+  addPeticion(peticion: Peticion) {
+    return this.http.post(`${this.apiUrl}/peticiones`, { data: peticion });
   }
 }

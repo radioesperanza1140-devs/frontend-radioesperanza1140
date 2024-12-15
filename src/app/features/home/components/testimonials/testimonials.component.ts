@@ -1,17 +1,50 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import { TestimonialService } from './services/testimonial.service';
+import { Testimonial } from '../../../../core/domain/models/testimonial.model';
+import { CommonModule } from '@angular/common';
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import { SwiperOptions } from 'swiper/types';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss',
 })
-export class TestimonialsComponent {
+export class TestimonialsComponent implements AfterViewInit {
+  testimonios: Testimonial[];
   public value = 0;
   public windowWidth = window.innerWidth;
-  constructor() {}
+  constructor(private testimoniosService:TestimonialService) {
+    this.getTestimonios();
+  }
+  ngAfterViewInit(): void {
+    Swiper.use([Navigation, Pagination]);
+    const swiper = new Swiper('#swiperTestimonios', {
+      slidesPerView: this.changeslidesPerView(),
+      loop: true,
+      speed: 500,
+      effect: 'coverflow',
+      coverflowEffect: {
+        depth: 100,
+        modifier: 1,
+        rotate: 50,
+        scale: 1,
+        slideShadows: false,
+        stretch: 0,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
 
   ngOnInit(): void {}
 
@@ -44,4 +77,24 @@ export class TestimonialsComponent {
 
     return this.value;
   }
+
+  getTestimonios(){
+    try {
+      this.testimoniosService.execute().subscribe({
+        next: (response: any) => {
+          if (response && Array.isArray(response.data)) {
+              this.testimonios = response.data;
+              console.log(this.testimonios);
+          }
+        },
+        error: (err) => {
+          console.error('Error al cargar Testimonio:', err);
+        },
+      });
+    } catch (error) {
+      console.error('Error inesperado al cargar Testimonio:', error);
+    }
+  }
 }
+
+

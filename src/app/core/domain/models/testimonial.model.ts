@@ -1,5 +1,5 @@
 export interface Testimonial {
   id: string;
-  title:string;
+  author:string;
   description: string;
 }

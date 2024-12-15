@@ -10,7 +10,7 @@ export class ProgramationsListService {
 
   getDetailProgramtion(id: string) {
     return this.http.get(
-      `${environment.API_URL}/programations/${id}?populate=imagen`
+      `${environment.API_URL}/programations/${id}?populate=imagen&sort[0]=orden:asc`
     );
   }
 }

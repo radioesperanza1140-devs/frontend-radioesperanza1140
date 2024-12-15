@@ -29,6 +29,7 @@ small {
 
 .contact-container {
   display: flex;
+  flex-wrap: wrap;
   height: 600px;
   background: var($bg-color);
 }
@@ -232,59 +233,59 @@ input:checked + .slider:before {
   transition-delay: 3s;
 }
 
-@media only screen and (max-width: 950px) {
-  .logo {
-    width: 8rem;
-  }
-  h1 {
-    font-size: 1.75rem;
-  }
-  p {
-    font-size: 0.7rem;
-  }
-  input,
-  textarea,
-  button {
-    font-size: 0.65rem;
-  }
-  .description {
-    font-size: 0.3rem;
-    margin-left: 0.4rem;
-  }
-  button {
-    width: 7rem;
-  }
-  .theme-switch-wrapper {
-    width: 120px;
-  }
-  .theme-switch {
-    height: 28px;
-    width: 50px;
-  }
+// @media only screen and (max-width: 950px) {
+//   .logo {
+//     width: 8rem;
+//   }
+//   h1 {
+//     font-size: 1.75rem;
+//   }
+//   p {
+//     font-size: 0.7rem;
+//   }
+//   input,
+//   textarea,
+//   button {
+//     font-size: 0.65rem;
+//   }
+//   .description {
+//     font-size: 0.3rem;
+//     margin-left: 0.4rem;
+//   }
+//   button {
+//     width: 7rem;
+//   }
+//   .theme-switch-wrapper {
+//     width: 120px;
+//   }
+//   .theme-switch {
+//     height: 28px;
+//     width: 50px;
+//   }
 
-  .theme-switch input {
-    display: none;
-  }
+//   .theme-switch input {
+//     display: none;
+//   }
 
-  .slider:before {
-    background-color: #fff;
-    bottom: 0.25rem;
-    content: "";
-    width: 20px;
-    height: 20px;
-    left: 0.25rem;
-    position: absolute;
-    transition: 0.4s;
-  }
-  input:checked + .slider:before {
-    transform: translateX(16px);
-  }
+//   .slider:before {
+//     background-color: #fff;
+//     bottom: 0.25rem;
+//     content: "";
+//     width: 20px;
+//     height: 20px;
+//     left: 0.25rem;
+//     position: absolute;
+//     transition: 0.4s;
+//   }
+//   input:checked + .slider:before {
+//     transform: translateX(16px);
+//   }
 
-  .slider.round {
-    border-radius: 15px;
-  }
+//   .slider.round {
+//     border-radius: 15px;
+//   }
 
-  .slider.round:before {
-    border-radius: 50%;
-  }
-}
+//   .slider.round:before {
+//     border-radius: 50%;
+//   }
+// }

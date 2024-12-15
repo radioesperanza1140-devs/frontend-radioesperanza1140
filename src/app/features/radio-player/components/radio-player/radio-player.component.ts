@@ -25,13 +25,9 @@ export class RadioPlayerComponent implements OnInit  {
   programationInfo : string = '';
 
   constructor(private radioPlayerUseCase:RadioPlayerUsecase,
-              private currentProgramation: GetCurrentProgramationUsecase
-  ){
+              private currentProgramation: GetCurrentProgramationUsecase)
+  {
     this.radioPlayerUseCase.execute().subscribe((t:any)=> this.audioSrc = t.data.audio_url);
-
-    //  setInterval(() => {
-    //    this.loadCurrentProgram();
-    //  }, 10000);
   }
 
   ngOnInit(): void {
@@ -76,7 +72,8 @@ export class RadioPlayerComponent implements OnInit  {
         horario_emision_inicio: '',
         horario_emision_fin:'',
         description:'',
-        dias_EnEmision:''
+        dias_EnEmision:'',
+        orden: 0
     };
 
     this.currentProgramation.execute(startTime, endTime).subscribe({
@@ -92,7 +89,8 @@ export class RadioPlayerComponent implements OnInit  {
               horario_emision_inicio: formatTimeTo12Hour(item.horario_emision_inicio),
               horario_emision_fin: formatTimeTo12Hour(item.horario_emision_fin),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl+ item.imagen.url
+              imagenUrl: this.assetsUrl+ item.imagen.url,
+              orden: item.orden
             };
             this.programationInfo = `${this.program.horario_emision_inicio} - ${this.program.horario_emision_fin}`
           }
