@@ -10,11 +10,12 @@ import { environment } from '../../../../../environments/environment';
 import { ProgramationService } from '../../../home/components/programation/services/programation.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { FooterComponent } from "../../../../shared/footer/footer.component";
 
 @Component({
   selector: 'app-programation-list',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './programation-list.component.html',
   styleUrls: ['./programation-list.component.scss'],
@@ -55,7 +56,7 @@ export class ProgramationListComponent implements OnInit, OnDestroy {
                 item.horario_emision_fin
               ),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl + item.imagen.url,
+              imagenUrl: this.assetsUrl + (item.imagen != null ? item.imagen.url : 'default-programation.png'),
             }));
 
             this.programs = this.listPrograms; // Asignar los programas cargados

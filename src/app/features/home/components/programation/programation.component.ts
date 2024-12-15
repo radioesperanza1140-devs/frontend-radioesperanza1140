@@ -55,7 +55,8 @@ export class ProgramationComponent implements OnInit, OnDestroy {
                 item.horario_emision_fin
               ),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl + item.imagen.url,
+              imagenUrl: this.assetsUrl + (item.imagen != null ? item.imagen.url : 'default-programation.png'),
+              orden: item.orden
             }));
 
             // Mostrar solo los tres primeros programas

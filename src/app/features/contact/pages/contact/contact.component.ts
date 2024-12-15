@@ -40,9 +40,9 @@ export class ContactComponent {
           alert('Hubo un error al enviar el mensaje.');
         }
       });
-  }else {
-    console.log('Form is invalid');
-  }
+    }else {
+      console.log('Form is invalid');
+    }
   }
 }
 
