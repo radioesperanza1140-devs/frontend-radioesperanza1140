@@ -18,12 +18,16 @@
   align-items: center;
   gap: 5px;
   border-radius: 10px; /* Bordes redondeados */
+
+  
 }
 
 .volume-wrapper {
   display: flex;
   align-items: center;
   margin-left: 10px; /* Espaciado entre el botón Play y el control de volumen */
+ 
+
 }
 
 .pulse-button {
@@ -42,8 +46,11 @@
   background: $primaryColor;
   cursor: pointer;
   box-shadow: 0 0 0 0 rgba(90, 212, 212, 0.5);
-  animation: pulse 1.5s infinite;
+ 
+  margin-left: 10px;
 }
+
+
 
 .pulse-button:hover {
   animation: none;
@@ -63,6 +70,7 @@
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  // display: none;
 }
 
 input[type="range"] {
@@ -73,6 +81,7 @@ input[type="range"] {
   background: white; /* Cambia el color de la barra a blanco */
   border-radius: 5px; /* Opcional: Redondea los bordes de la barra */
   cursor: pointer;
+  // display: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -183,3 +192,87 @@ input[type="range"]::-webkit-slider-thumb {
   text-align: center;
   flex-wrap: wrap;
 }
+
+.live{
+  color: #fff;
+  margin-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc; /* Color predeterminado */
+  margin-left: 10px;
+  position: relative; /* Necesario para la animación */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.circle.playing {
+  background: red; /* Color cuando está en play */
+  animation: pulse 1.5s infinite; /* Aplica la animación */
+}
+
+.circle.paused {
+  background: #ccc; /* Color cuando está en pausa */
+  animation: none; /* Detén la animación */
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); /* Inicia con sombra pequeña */
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); /* Expande y desvanece */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); /* Reinicia la animación */
+  }
+}
+@media(max-width:669px){
+  input[type="range"]{
+    display: none;
+  }
+
+  .volume{
+    display: none;
+  }
+}
+
+@media(max-width:550px){
+  .pulse-button{
+    width: 40px;
+    height: 40px;
+    padding: 20px;
+  }
+  
+
+  .container_player_and_vol{
+   
+    // background: red;
+    justify-content: flex-end ;
+      width: 100%;
+    align-items: center;
+   
+  }
+
+  .live{
+    margin-right: 0px;
+    // background: blue;
+    // width: 100%;
+  
+  }
+ 
+
+  .sub-title{
+    font-size: 13px;
+  }
+
+  
+}
+
+
