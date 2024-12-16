@@ -1,7 +1,6 @@
 <div class="container_principal_info">
   <div class="container_title_and_image">
     <!-- Mostrar mensaje de carga mientras isLoading sea true -->
-
     <div *ngIf="isLoading" class="lds-ripple">
       <div></div>
       <div></div>
@@ -32,7 +31,6 @@
         <h2>Escribe tu <span style="color: #3eccb5">petición</span></h2>
       </div>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
-
         <!-- Campo de Nombre -->
         <div class="form-group container_input_name">
           <input
@@ -42,12 +40,23 @@
             class="form-control name"
             placeholder="Ingresa tu nombre"
             formControlName="nombre"
+            [ngClass]="{
+              'is-invalid':
+                form.get('nombre')?.invalid && form.get('nombre')?.touched
+            }"
             required
           />
-        </div>
-        <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
-          <small *ngIf="form.get('nombre')?.errors?.['required']">Nombre  es requerido.</small>
-          <small *ngIf="form.get('nombre')?.errors?.['minlength']">Nombre debe ser al menos 3 caracteres.</small>
+          <div
+            *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched"
+            class="invalid-feedback"
+          >
+            <small *ngIf="form.get('nombre')?.errors?.['required']"
+              >Nombre es requerido.</small
+            >
+            <small *ngIf="form.get('nombre')?.errors?.['minlength']"
+              >Nombre debe ser al menos 3 caracteres.</small
+            >
+          </div>
         </div>
 
         <!-- Campos de Correo Electrónico y Petición -->
@@ -60,11 +69,22 @@
               class="form-control email"
               placeholder="Ingresa tu correo electrónico"
               formControlName="email"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('email')?.invalid && form.get('email')?.touched
+              }"
               required
             />
-            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-              <small *ngIf="form.get('email')?.errors?.['required']">Email es requerido.</small>
-              <small *ngIf="form.get('email')?.errors?.['email']">Formato Invalido para email .</small>
+            <div
+              *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+              class="invalid-feedback"
+            >
+              <small *ngIf="form.get('email')?.errors?.['required']"
+                >Email es requerido.</small
+              >
+              <small *ngIf="form.get('email')?.errors?.['email']"
+                >Formato inválido para email.</small
+              >
             </div>
           </div>
 
@@ -74,6 +94,11 @@
               name="tipoPeticion"
               class="form-control select_peticion"
               formControlName="tipoPeticion"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('tipoPeticion')?.invalid &&
+                  form.get('tipoPeticion')?.touched
+              }"
               required
             >
               <option value="" disabled selected>Selecciona una opción</option>
@@ -84,6 +109,17 @@
               <option>Protección divina</option>
               <option>Empleo</option>
             </select>
+            <div
+              *ngIf="
+                form.get('tipoPeticion')?.invalid &&
+                form.get('tipoPeticion')?.touched
+              "
+              class="invalid-feedback"
+            >
+              <small *ngIf="form.get('tipoPeticion')?.errors?.['required']"
+                >Selecciona una opción.</small
+              >
+            </div>
           </div>
         </div>
 
@@ -96,10 +132,21 @@
             rows="4"
             placeholder="Escribe los detalles de tu petición"
             formControlName="peticion"
+            [ngClass]="{
+              'is-invalid':
+                form.get('peticion')?.invalid && form.get('peticion')?.touched
+            }"
             required
           ></textarea>
-          <div *ngIf="form.get('peticion')?.invalid && form.get('peticion')?.touched">
-            <small *ngIf="form.get('peticion')?.errors?.['required']">Mensaje es requerido.</small>
+          <div
+            *ngIf="
+              form.get('peticion')?.invalid && form.get('peticion')?.touched
+            "
+            class="invalid-feedback"
+          >
+            <small *ngIf="form.get('peticion')?.errors?.['required']"
+              >Mensaje es requerido.</small
+            >
           </div>
         </div>
 
@@ -111,4 +158,5 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
