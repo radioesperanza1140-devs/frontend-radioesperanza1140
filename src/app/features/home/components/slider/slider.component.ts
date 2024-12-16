@@ -76,7 +76,7 @@ export class SliderComponent implements AfterViewInit {
         parallax: true,
       };
 
-      const swiper = new Swiper('.swiper', swiperOptions);
+      const swiper = new Swiper('#swiperBanner', swiperOptions);
     }
   }
 
@@ -88,6 +88,7 @@ export class SliderComponent implements AfterViewInit {
             title: item.title,
             description: item.slogan,
             imageUrl: this.assetsUrl + item.imagen.url,
+
           }));
         }
       });

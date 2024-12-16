@@ -19,7 +19,6 @@ import { PresentationComponent } from "../../components/presentation/presentatio
     TestimonialsComponent,
     ProgramationComponent,
     PercentageSectionComponent,
-    DonationComponent,
     FooterComponent,
     PresentationComponent
 ],

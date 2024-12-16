@@ -33,7 +33,8 @@
       <div class="container_title">
         <h2>Escribe tu <span style="color: #3eccb5">petición</span></h2>
       </div>
-      <form class="form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
         <!-- Campo de Nombre -->
         <div class="form-group container_input_name">
           <input
@@ -42,8 +43,13 @@
             name="nombre"
             class="form-control name"
             placeholder="Ingresa tu nombre"
+            formControlName="nombre"
             required
           />
+        </div>
+        <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+          <small *ngIf="form.get('nombre')?.errors?.['required']">Nombre  es requerido.</small>
+          <small *ngIf="form.get('nombre')?.errors?.['minlength']">Nombre debe ser al menos 3 caracteres.</small>
         </div>
 
         <!-- Campos de Correo Electrónico y Petición -->
@@ -55,21 +61,30 @@
               name="email"
               class="form-control email"
               placeholder="Ingresa tu correo electrónico"
+              formControlName="email"
               required
             />
+            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+              <small *ngIf="form.get('email')?.errors?.['required']">Email es requerido.</small>
+              <small *ngIf="form.get('email')?.errors?.['email']">Formato Invalido para email .</small>
+            </div>
           </div>
 
           <div class="form-group container_slect">
             <select
-              id="peticion"
-              name="peticion"
+              id="tipoPeticion"
+              name="tipoPeticion"
               class="form-control select_peticion"
+              formControlName="tipoPeticion"
               required
             >
-              <option value="opcion1">Opción 1</option>
-              <option value="opcion2">Opción 2</option>
-              <option value="opcion3">Opción 3</option>
-              <option value="opcion4">Opción 4</option>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Sanidad</option>
+              <option>Liberación</option>
+              <option>Conversión</option>
+              <option>Familia</option>
+              <option>Protección divina</option>
+              <option>Empleo</option>
             </select>
           </div>
         </div>
@@ -77,13 +92,17 @@
         <!-- Campo de Petición (más grande) -->
         <div class="form-group">
           <textarea
-            id="detalle-peticion"
-            name="detalle-peticion"
+            id="peticion"
+            name="peticion"
             class="form-control input_description"
             rows="4"
             placeholder="Escribe los detalles de tu petición"
+            formControlName="peticion"
             required
           ></textarea>
+          <div *ngIf="form.get('peticion')?.invalid && form.get('peticion')?.touched">
+            <small *ngIf="form.get('peticion')?.errors?.['required']">Mensaje es requerido.</small>
+          </div>
         </div>
 
         <!-- Botón de Enviar -->
@@ -94,3 +113,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>
