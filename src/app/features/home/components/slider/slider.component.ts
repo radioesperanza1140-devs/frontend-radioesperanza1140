@@ -43,6 +43,18 @@ export class SliderComponent implements AfterViewInit {
       const swiperOptions: SwiperOptions = {
         initialSlide: 1,
         loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination', // Selector del contenedor de la paginación
+          clickable: true, // Habilitar clics en los bullets
+          dynamicBullets: true, // (Opcional) Permite bullets dinámicos
+          bulletClass: 'swiper-pagination-bullet', // Clase estándar
+          bulletActiveClass: 'swiper-pagination-bullet-active', // Clase activa estándar
+        },
+
         // Responsive breakpoints
         breakpoints: {
           // when window width is >= 320px

@@ -40,6 +40,26 @@
   text-align: center;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff; /* Cambia este color al que desees */
+  opacity: 0.8; /* Ajusta la transparencia */
+  &:hover {
+    color: #fff; /* Color al pasar el cursor */
+    opacity: 1;
+  }
+}
+
+.swiper {
+  --swiper-pagination-color: #fff !important;
+  --swiper-pagination-bullet-inactive-color: #f4f4f4 !important;
+  --swiper-navigation-color: #fff !important;
+  --swiper-pagination-bullet-size:  16px !important; /* Tamaño de los bullets */
+  --swiper-pagination-bullet-active-size: 20px !important; /* Tamaño del bullet activo */
+  width: 100%;
+}
+
+
 /* Set the background image for each slide */
 .swiper-slide-img {
   position: absolute;
