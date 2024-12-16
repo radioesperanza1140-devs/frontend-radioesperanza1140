@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,17 +25,10 @@ export class RadioPlayerComponent implements OnInit {
   program: Programation;
   programationInfo: string = '';
 
-  constructor(
-    private radioPlayerUseCase: RadioPlayerUsecase,
-    private currentProgramation: GetCurrentProgramationUsecase
-  ) {
-    this.radioPlayerUseCase
-      .execute()
-      .subscribe((t: any) => (this.audioSrc = t.data.audio_url));
-
-    //  setInterval(() => {
-    //    this.loadCurrentProgram();
-    //  }, 10000);
+  constructor(private radioPlayerUseCase:RadioPlayerUsecase,
+              private currentProgramation: GetCurrentProgramationUsecase)
+  {
+    this.radioPlayerUseCase.execute().subscribe((t:any)=> this.audioSrc = t.data.audio_url);
   }
 
   ngOnInit(): void {
