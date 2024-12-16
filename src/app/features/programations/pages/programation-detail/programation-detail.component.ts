@@ -17,6 +17,7 @@ import {
 import { Peticion } from '../../../../core/domain/models/peticion.model';
 import { StrapiService } from '../../../../core/services/strapi.service';
 import { ViewportScroller } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-programation-detail',
@@ -54,6 +55,8 @@ export class ProgramationDetailComponent {
       peticion: ['', [Validators.required, Validators.minLength(3)]],
       tipoPeticion: ['', [Validators.required]],
     });
+
+    console.log(this.form);
   }
 
   ngOnInit(): void {
@@ -88,28 +91,32 @@ export class ProgramationDetailComponent {
     }
     return null;
   }
-
   onSubmit() {
+    // Marcar todos los campos como tocados para que se muestren los errores
+    this.form.markAllAsTouched();
+
+    // Verificar si el formulario es válido
     if (this.form.valid) {
       this.peticion = this.form.value as Peticion;
       this.strapiService.addPeticion(this.peticion).subscribe({
         next: (response) => {
-          console.log('Peticion enviado con éxito:', response);
-          alert('Mensaje enviado con éxito');
-          this.peticion = {
-            nombre: '',
-            email: '',
-            peticion: '',
-            tipoPeticion: '',
-          };
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Tu petición se ha enviado',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // Limpiar el formulario
+          this.form.reset();
         },
         error: (err) => {
-          console.error('Error al enviar su Peticion:', err);
+          console.error('Error al enviar su Petición:', err);
           alert('Hubo un error al enviar el mensaje.');
         },
       });
     } else {
-      console.log('Form is invalid');
+      console.log('Formulario inválido');
     }
   }
 }

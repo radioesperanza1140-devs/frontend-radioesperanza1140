@@ -29,6 +29,7 @@
     "intersection-observer": "^0.12.2",
     "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.15.0",
     "swiper": "^11.1.15",
     "tslib": "^2.3.0",
     "web-radioesperanza-1140": "file:",
