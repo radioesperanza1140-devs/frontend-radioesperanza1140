@@ -101,7 +101,7 @@ export class ProgramationDetailComponent {
       this.strapiService.addPeticion(this.peticion).subscribe({
         next: (response) => {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Tu petición se ha enviado',
             showConfirmButton: false,
@@ -111,8 +111,13 @@ export class ProgramationDetailComponent {
           this.form.reset();
         },
         error: (err) => {
-          console.error('Error al enviar su Petición:', err);
-          alert('Hubo un error al enviar el mensaje.');
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Ocurrió erro al enviar petición',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         },
       });
     } else {
