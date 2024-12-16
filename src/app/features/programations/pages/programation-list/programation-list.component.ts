@@ -10,7 +10,8 @@ import { environment } from '../../../../../environments/environment';
 import { ProgramationService } from '../../../home/components/programation/services/programation.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
-import { FooterComponent } from "../../../../shared/footer/footer.component";
+import { FooterComponent } from '../../../../shared/footer/footer.component';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-programation-list',
@@ -27,12 +28,14 @@ export class ProgramationListComponent implements OnInit, OnDestroy {
   isLoading: boolean = true; // Variable para gestionar el estado de carga
 
   constructor(
+    private viewportScroller: ViewportScroller,
     private programationService: ProgramationService,
     private cdRef: ChangeDetectorRef // Para forzar la detección de cambios
   ) {}
 
   ngOnInit() {
     this.loadPrograms();
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 
   ngOnDestroy() {
@@ -56,7 +59,11 @@ export class ProgramationListComponent implements OnInit, OnDestroy {
                 item.horario_emision_fin
               ),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl + (item.imagen != null ? item.imagen.url : 'default-programation.png'),
+              imagenUrl:
+                this.assetsUrl +
+                (item.imagen != null
+                  ? item.imagen.url
+                  : 'default-programation.png'),
             }));
 
             this.programs = this.listPrograms; // Asignar los programas cargados
