@@ -5,19 +5,28 @@
      padding: 40px 10px 40px 10px;
      margin: 0 auto;
      display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-wrap: wrap; 
+max-width: 1500px;
+
 }
 
-swiper-container {
+.swiper {
     --swiper-pagination-color: #000 !important;
     --swiper-pagination-bullet-inactive-color: #000 !important;
     
   
-    
+// ;    height: auto;
+//     width: 100%;
+
+//      padding: 40px 10px 40px 10px;
+   
+//      display: flex;
+// max-width: 1500px;
+//      background: red;
+//      justify-content: center;
+//      align-items: center
   
   }
+
 
 .text_testimonio{
   
@@ -57,7 +66,7 @@ swiper-container {
 
 
 
-swiper-container {
+.swiper-container {
 
 margin: 0 auto;
   height: 520px;
@@ -66,7 +75,7 @@ margin: 0 auto;
 }
 
 /* Asegura que los slides tengan el tamaño correcto */
-swiper-slide {
+.swiper-slide {
   flex: 0 0 auto; /* Evita que los slides se estiren o reduzcan */
 
   display: flex;

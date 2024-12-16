@@ -1,4 +1,9 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  HostListener,
+} from '@angular/core';
 import { TestimonialService } from './services/testimonial.service';
 import { Testimonial } from '../../../../core/domain/models/testimonial.model';
 import { CommonModule } from '@angular/common';
@@ -18,15 +23,18 @@ import 'swiper/css/effect-coverflow';
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent implements AfterViewInit {
-  testimonios: Testimonial[];
+  testimonios: Testimonial[] = [];
   public value = 0;
   public windowWidth = window.innerWidth;
-  constructor(private testimoniosService:TestimonialService) {
+  private swiper: Swiper;
+
+  constructor(private testimoniosService: TestimonialService) {
     this.getTestimonios();
   }
+
   ngAfterViewInit(): void {
     Swiper.use([Navigation, Pagination]);
-    const swiper = new Swiper('#swiperTestimonios', {
+    this.swiper = new Swiper('#swiperTestimonios', {
       slidesPerView: this.changeslidesPerView(),
       loop: true,
       speed: 500,
@@ -51,6 +59,9 @@ export class TestimonialsComponent implements AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.windowWidth = window.innerWidth;
+    // Actualizamos el número de slides y también actualizamos el swiper
+    this.swiper.params.slidesPerView = this.changeslidesPerView();
+    this.swiper.update(); // Esto asegura que Swiper se actualice después del cambio de tamaño
   }
 
   changeslidesPerView() {
@@ -78,13 +89,13 @@ export class TestimonialsComponent implements AfterViewInit {
     return this.value;
   }
 
-  getTestimonios(){
+  getTestimonios() {
     try {
       this.testimoniosService.execute().subscribe({
         next: (response: any) => {
           if (response && Array.isArray(response.data)) {
-              this.testimonios = response.data;
-              console.log(this.testimonios);
+            this.testimonios = response.data;
+            console.log(this.testimonios);
           }
         },
         error: (err) => {
@@ -96,5 +107,3 @@ export class TestimonialsComponent implements AfterViewInit {
     }
   }
 }
-
-

@@ -21,25 +21,28 @@ small {
   font-size: 0.8em;
 }
 
-* {
-  margin: 0;
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-}
+
 
 .contact-container {
   display: flex;
-  flex-wrap: wrap;
-  height: 600px;
+
+  height:auto;
   background: var($bg-color);
+  justify-content: center;
+  align-items: center;
+
+
+
 }
 
 .left-col {
-  width: 45vw;
+
+  width: 100%;
   height: 570px;
   background-image: url("/cabina.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 10px;
 }
 
 .logo {
@@ -50,9 +53,11 @@ small {
 
 .right-col {
   background: var($bg-color);
-  width: 50vw;
-  height: 600px;
-  padding: 20px 20px 0px 25px;
+  width: 100%;
+  // background: red;
+
+padding: 20px;
+  
 }
 
 h1,
@@ -76,7 +81,7 @@ p {
   color: var($secondary-color);
   font-size: 0.9rem;
   letter-spacing: 0.01rem;
-  width: 40vw;
+
   margin: 0.25rem 0;
 }
 
@@ -88,7 +93,7 @@ label,
 }
 
 form {
-  width: 31.25rem;
+
   position: relative;
   margin-top: 2rem;
   padding: 1rem 0;
@@ -233,6 +238,29 @@ input:checked + .slider:before {
   transition-delay: 3s;
 }
 
+/* Ajusta el margen inferior de los inputs y textarea */
+input,
+textarea {
+  color: var($primary-color);
+  font-weight: 500;
+  background: var($bg-color);
+  border: none;
+  border-bottom: 1px solid #818386;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem;  /* Reducido el espacio entre input y error */
+  outline: none;
+}
+
+/* Ajuste de los mensajes de error */
+small {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 0.25rem; /* Acerca los errores a los inputs */
+  display: block;
+  margin-bottom: 30px;
+}
+
+
 // @media only screen and (max-width: 950px) {
 //   .logo {
 //     width: 8rem;
@@ -289,3 +317,39 @@ input:checked + .slider:before {
 //     border-radius: 50%;
 //   }
 // }
+input{
+  margin-top: 30px ;
+}
+button{
+  margin-top: 20px;
+}
+@media(max-width:1000px){
+  .left-col{
+    display: none;
+  }
+  h1{
+    font-size: 20px;
+  }
+
+small, label{
+    text-align: left;
+  }
+
+  .right-col{
+  //  background: red;
+   text-align: center;
+  }
+input{
+  width: 100%;
+}
+
+
+
+textarea{
+  width: 100%;
+}
+
+
+
+ 
+}
