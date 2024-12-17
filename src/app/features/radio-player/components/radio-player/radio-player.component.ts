@@ -8,7 +8,7 @@ import { SvgLogoComponent } from '../../../../assets/svg-logo/svg-logo.component
 import { GetCurrentProgramationUsecase } from '../../../../core/domain/use-cases/get-current-programation.usecase';
 import { Programation } from '../../../../core/domain/models/programation.mode';
 import { environment } from '../../../../../environments/environment';
-
+import { interval } from 'rxjs';
 @Component({
   selector: 'app-radio-player',
   standalone: true,
@@ -49,25 +49,11 @@ export class RadioPlayerComponent implements OnInit {
     audio.volume = this.volume;
   }
 
-  loadCurrentProgram() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const startMinutes = minutes < 30 ? 0 : 30;
-    let startTime = `${hours.toString().padStart(2, '0')}:${startMinutes
-      .toString()
-      .padStart(2, '0')}`;
-    let endTime =
-      startMinutes === 0
-        ? `${hours.toString().padStart(2, '0')}:30`
-        : `${(hours + 1).toString().padStart(2, '0')}:00`;
-
-    startTime = `${startTime}:00:000`;
-    endTime = `${endTime}:00:000`;
-    this.currentPrograma(startTime, endTime);
+  async loadCurrentProgram() {
+    await this.currentPrograma();
   }
 
-  currentPrograma(startTime: string, endTime: string) {
+  async currentPrograma() {
     this.program = {
         id:'',
         documentId:'',
@@ -80,10 +66,10 @@ export class RadioPlayerComponent implements OnInit {
         orden: 0
     };
 
-    this.currentProgramation.execute(startTime, endTime).subscribe({
+    await this.currentProgramation.execute().subscribe({
       next: (response: any) => {
+
         if (response && Array.isArray(response.data)) {
-          if (response.length > 0) {
             var item = response.data[0];
             this.program = {
               id: item.id,
@@ -95,11 +81,13 @@ export class RadioPlayerComponent implements OnInit {
               ),
               horario_emision_fin: formatTimeTo12Hour(item.horario_emision_fin),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl+ item.imagen.url,
+              imagenUrl: this.assetsUrl + (item?.imagen != null
+                ? item?.imagen.url
+                : 'default-programation.png'),
               orden: item.orden
             };
             this.programationInfo = `${this.program.horario_emision_inicio} - ${this.program.horario_emision_fin}`;
-          }
+          if (response.length > 0) {}
         }
       },
       error: (err) => {

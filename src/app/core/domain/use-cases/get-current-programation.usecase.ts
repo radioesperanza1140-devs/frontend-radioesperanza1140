@@ -10,7 +10,7 @@ import { Programation } from '../models/programation.mode';
 export class GetCurrentProgramationUsecase {
 
   constructor(private strapiService: StrapiService) {}
-  execute(startTime:string, endTime:string): Observable<Programation> {
-    return this.strapiService.getCurrentProgramation(startTime, endTime);
+  execute(): Observable<Programation> {
+    return this.strapiService.getCurrentProgramation();
   }
 }
