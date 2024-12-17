@@ -29,8 +29,8 @@ export class StrapiService {
     return this.http.get<Programation[]>(`${this.apiUrl}/programations?populate=imagen&sort[0]=orden:asc`);
   }
 
-  getCurrentProgramation(startTime: string, endTime: string): Observable<Programation> {
-    return this.http.get<Programation>(`${this.apiUrl}/programations?populate=imagen&filters[horario_emision_inicio][$gte]=${startTime}&filters[horario_emision_fin][$lte]=${endTime}`);
+  getCurrentProgramation(): Observable<Programation> {
+    return this.http.get<Programation>(`${this.apiUrl}/programations?populate=imagen&filters[currentProgram][$eq]=1`);
   }
 
   getTestimonials(): Observable<Testimonial[]> {
