@@ -70,7 +70,9 @@ export class RadioPlayerComponent implements OnInit {
       next: (response: any) => {
 
         if (response && Array.isArray(response.data)) {
+          if (response.data.length > 0) {
             var item = response.data[0];
+
             this.program = {
               id: item.id,
               documentId: item.documentId,
@@ -83,11 +85,11 @@ export class RadioPlayerComponent implements OnInit {
               dias_EnEmision: item.dias_EnEmision,
               imagenUrl: this.assetsUrl + (item?.imagen != null
                 ? item?.imagen.url
-                : 'default-programation.png'),
+                : '/default-programation.png'),
               orden: item.orden
             };
             this.programationInfo = `${this.program.horario_emision_inicio} - ${this.program.horario_emision_fin}`;
-          if (response.length > 0) {}
+          }
         }
       },
       error: (err) => {
