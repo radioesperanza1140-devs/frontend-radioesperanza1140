@@ -2,11 +2,12 @@
   position: relative;
   width: 100%;
   text-align: center;
-  height: calc(100vh - 150px); /* Asegura que el contenedor ocupe la altura total */
+  min-height: calc(100vh - 150px); /* Asegura que el contenedor ocupe la altura total */
   background-image: url("/radio.jpg");
   background-size: cover;
   background-position: center;
   z-index: 0;
+  height: auto;
 }
 
 
@@ -31,11 +32,19 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap-reverse;
 
 
 }
 p{
   font-size: 18px;
+}
+
+.container-form{
+  // background: red;
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .container_info {
@@ -61,5 +70,12 @@ border: 1px  solid rgba(143, 141, 141, 0.1);
 h1{
   font-size: 2rem;
   font-weight: 900;
+  
+}
+
+@media(max-width:1270px){
+  .container_principal{
+    padding-bottom: 150px;
+  }
   
 }
