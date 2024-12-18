@@ -188,9 +188,10 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   gap: 20px;
   flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  flex-wrap: wrap;
+  justify-content: left;
+  text-align: left;
+ 
+ 
 }
 
 .live{
@@ -249,7 +250,17 @@ input[type="range"]::-webkit-slider-thumb {
     height: 40px;
     padding: 20px;
   }
-  
+
+  .program-div{
+    width: 70px;
+    height: 45px;
+
+  }
+
+  .info-programa{
+    gap: 3px;
+  }
+
 
   .container_player_and_vol{
    
