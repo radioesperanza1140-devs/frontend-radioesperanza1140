@@ -95,7 +95,6 @@ export class TestimonialsComponent implements AfterViewInit {
         next: (response: any) => {
           if (response && Array.isArray(response.data)) {
             this.testimonios = response.data;
-            console.log(this.testimonios);
           }
         },
         error: (err) => {

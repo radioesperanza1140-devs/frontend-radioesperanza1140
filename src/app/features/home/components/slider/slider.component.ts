@@ -33,64 +33,110 @@ export class SliderComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private getBannerUseCase: GetBannerUseCase
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.loadImages();
   }
-  ngAfterViewInit(): void {
+
+  initializeSwiper() {
     if (isPlatformBrowser(this.platformId)) {
       Swiper.use([Navigation, Pagination]);
 
       const swiperOptions: SwiperOptions = {
-        initialSlide: 1,
+        initialSlide: 0,
         loop: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
         pagination: {
-          el: '.swiper-pagination', // Selector del contenedor de la paginación
-          clickable: true, // Habilitar clics en los bullets
-          dynamicBullets: true, // (Opcional) Permite bullets dinámicos
-          bulletClass: 'swiper-pagination-bullet', // Clase estándar
-          bulletActiveClass: 'swiper-pagination-bullet-active', // Clase activa estándar
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
         },
-
-        // Responsive breakpoints
         breakpoints: {
-          // when window width is >= 320px
           320: {
             slidesPerView: 1,
             spaceBetween: 40,
           },
-          // when window width is >= 480px
           480: {
             slidesPerView: 1,
             spaceBetween: 40,
           },
-          // when window width is >= 640px
           640: {
             slidesPerView: 1,
             spaceBetween: 40,
           },
         },
-        breakpointsBase: 'window',
-        // setWrapperSize:true,
-        // roundLengths: true,
-        slidesPerView: 1,
-        // zoom: true,
         autoplay: {
           delay: 8000,
         },
         speed: 500,
-        allowSlideNext: true,
-        allowSlidePrev: true,
-        // effect: 'fade',
+        slidesPerView: 1,
         parallax: true,
       };
 
+      // Usa el ID del contenedor para inicializar Swiper
       const swiper = new Swiper('#swiperBanner', swiperOptions);
     }
   }
+  ngAfterViewInit(): void {}
+  // ngAfterViewInit(): void {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     Swiper.use([Navigation, Pagination]);
+
+  //     const swiperOptions: SwiperOptions = {
+  //       initialSlide: 1,
+  //       // loop: true,
+  //       navigation: {
+  //         nextEl: '.swiper-button-next',
+  //         prevEl: '.swiper-button-prev',
+  //       },
+  //       pagination: {
+  //         el: '.swiper-pagination', // Selector del contenedor de la paginación
+  //         clickable: true, // Habilitar clics en los bullets
+  //         dynamicBullets: true, // (Opcional) Permite bullets dinámicos
+  //         bulletClass: 'swiper-pagination-bullet', // Clase estándar
+  //         bulletActiveClass: 'swiper-pagination-bullet-active', // Clase activa estándar
+  //       },
+
+  //       // Responsive breakpoints
+  //       breakpoints: {
+  //         // when window width is >= 320px
+  //         320: {
+  //           slidesPerView: 1,
+  //           spaceBetween: 40,
+  //         },
+  //         // when window width is >= 480px
+  //         480: {
+  //           slidesPerView: 1,
+  //           spaceBetween: 40,
+  //         },
+  //         // when window width is >= 640px
+  //         640: {
+  //           slidesPerView: 1,
+  //           spaceBetween: 40,
+  //         },
+  //       },
+  //       breakpointsBase: 'window',
+  //       // setWrapperSize:true,
+  //       // roundLengths: true,
+  //       slidesPerView: 1,
+  //       // zoom: true,
+  //       autoplay: {
+  //         delay: 8000,
+  //       },
+  //       speed: 500,
+  //       allowSlideNext: true,
+  //       allowSlidePrev: true,
+  //       // effect: 'fade',
+  //       parallax: true,
+  //     };
+
+  //     const swiper = new Swiper('#swiperBanner', swiperOptions);
+  //   }
+  // }
 
   loadImages() {
     try {
@@ -100,8 +146,8 @@ export class SliderComponent implements AfterViewInit {
             title: item.title,
             description: item.slogan,
             imageUrl: this.assetsUrl + item.imagen.url,
-
           }));
+          this.initializeSwiper();
         }
       });
     } catch (error) {
