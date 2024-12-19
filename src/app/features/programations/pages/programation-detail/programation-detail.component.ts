@@ -55,8 +55,6 @@ export class ProgramationDetailComponent {
       peticion: ['', [Validators.required, Validators.minLength(3)]],
       tipoPeticion: ['', [Validators.required]],
     });
-
-    console.log(this.form);
   }
 
   ngOnInit(): void {
