@@ -15,7 +15,6 @@ body {
 
 .container_whatsapp img{
   width: 100%;
-  
 }
 
 * {
@@ -37,4 +36,35 @@ body {
     bottom: 145px;
     right: 30px;
   }
+}
+
+.btn_donacion {
+  background: #3eccb5 ;
+  color: #fff;
+  border-radius: 5px;
+  width: 125px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: fixed;
+  bottom: 200px; /* Pegado al borde inferior */
+left: -45px;
+  z-index: 100;
+  gap: 5px;
+  transform: rotate(270deg); /* Rotar 45 grados */
+  display: none;
+  padding-left  : 20px;
+  padding-top: 8px;
+}
+
+
+
+@media(max-width:990px){
+  .btn_donacion{
+    display: block;
+  }
+
 }

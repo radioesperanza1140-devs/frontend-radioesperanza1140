@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -25,10 +24,13 @@ export class RadioPlayerComponent implements OnInit {
   program: Programation;
   programationInfo: string = '';
 
-  constructor(private radioPlayerUseCase:RadioPlayerUsecase,
-              private currentProgramation: GetCurrentProgramationUsecase)
-  {
-    this.radioPlayerUseCase.execute().subscribe((t:any)=> this.audioSrc = t.data.audio_url);
+  constructor(
+    private radioPlayerUseCase: RadioPlayerUsecase,
+    private currentProgramation: GetCurrentProgramationUsecase
+  ) {
+    this.radioPlayerUseCase
+      .execute()
+      .subscribe((t: any) => (this.audioSrc = t.data.audio_url));
   }
 
   ngOnInit(): void {
@@ -55,20 +57,19 @@ export class RadioPlayerComponent implements OnInit {
 
   async currentPrograma() {
     this.program = {
-        id:'',
-        documentId:'',
-        imagenUrl: 'logo.png',
-        title: 'Radio Esperanza 1140am',
-        horario_emision_inicio: '',
-        horario_emision_fin:'',
-        description:'',
-        dias_EnEmision:'',
-        orden: 0
+      id: '',
+      documentId: '',
+      imagenUrl: 'logo.png',
+      title: 'Radio Esperanza 1140am',
+      horario_emision_inicio: '',
+      horario_emision_fin: '',
+      description: '',
+      dias_EnEmision: '',
+      orden: 0,
     };
 
     await this.currentProgramation.execute().subscribe({
       next: (response: any) => {
-
         if (response && Array.isArray(response.data)) {
           if (response.data.length > 0) {
             var item = response.data[0];
@@ -83,10 +84,12 @@ export class RadioPlayerComponent implements OnInit {
               ),
               horario_emision_fin: formatTimeTo12Hour(item.horario_emision_fin),
               dias_EnEmision: item.dias_EnEmision,
-              imagenUrl: this.assetsUrl + (item?.imagen != null
-                ? item?.imagen.url
-                : '/default-programation.png'),
-              orden: item.orden
+              imagenUrl:
+                this.assetsUrl +
+                (item?.imagen != null
+                  ? item?.imagen.url
+                  : '/default-programation.png'),
+              orden: item.orden,
             };
             this.programationInfo = `${this.program.horario_emision_inicio} - ${this.program.horario_emision_fin}`;
           }
