@@ -19,7 +19,7 @@ export class RadioPlayerComponent implements OnInit {
   audioSrc = ''; // URL del stream
   currentProgram: Programation;
   isPlaying = false;
-  volume = 0.5;
+  volume = 1;
   assetsUrl = environment.UPLOADS_URL;
   program: Programation;
   programationInfo: string = '';
