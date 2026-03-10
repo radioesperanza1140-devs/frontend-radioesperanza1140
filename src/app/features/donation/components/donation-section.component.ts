@@ -43,21 +43,21 @@ export class DonationSectionComponent implements OnInit {
 
   // ── Preset amounts (COP) ──
   readonly presets: DonationPreset[] = [
-    { label: '$10.000', value: 10000 },
-    { label: '$20.000', value: 20000 },
-    { label: '$50.000', value: 50000 },
-    { label: '$100.000', value: 100000 },
+    { label: '$30.000', value: 30000 },
+    { label: '$60.000', value: 60000 },
+    { label: '$150.000', value: 150000 },
+    { label: '$200.000', value: 200000 },
   ];
 
   // ── Reactive state ──
   readonly step = signal(1);
-  readonly selectedAmount = signal(10000); // default first preset
+  readonly selectedAmount = signal(30000); // default first preset
   readonly isCustomAmount = signal(false);
 
   // ── Forms ──
   readonly customAmountControl = this.fb.control<number | null>(null, [
     Validators.required,
-    Validators.min(1000),
+    Validators.min(30000),
   ]);
 
   readonly donorForm: FormGroup = this.fb.group({
@@ -67,6 +67,8 @@ export class DonationSectionComponent implements OnInit {
       '',
       [Validators.required, Validators.pattern(/^\d{7,10}$/)],
     ],
+    documentType: ['CC', Validators.required],
+    documentNumber: ['', [Validators.required, Validators.pattern(/^\d{5,15}$/)]],
   });
 
   // ── Bridge Reactive Forms → Signals ──
@@ -165,23 +167,35 @@ export class DonationSectionComponent implements OnInit {
     const donor = this.donorForm.value;
     const amount = this.currentAmount();
 
+    // Build redirectionUrl with donor info so the thanks page can show them.
+    // Bold will append &bold-order-id=XXX&bold-tx-status=approved|pending|declined
+    const redirectParams = new URLSearchParams({
+      'donor-name': donor.fullName ?? '',
+      'donor-amount': String(amount ?? 0),
+    });
+    const redirectionUrl = `${environment.boldRedirectUrl}?${redirectParams.toString()}`;
+
     // Build config
     const config: BoldCheckoutConfig = {
       apiKey: environment.boldApiKey,
       description: 'Donación Radio Esperanza 1140 AM',
-      redirectionUrl: environment.boldRedirectUrl,
+      redirectionUrl,
       renderMode: 'embedded',
       customerData: JSON.stringify({
         email: donor.email,
         fullName: donor.fullName,
         phone: donor.phone,
         dialCode: '+57',
+        documentType: donor.documentType,
+        documentNumber: donor.documentNumber,
       }),
     };
 
     // If a specific amount is selected, we need orderId + integritySignature
-    if (amount && amount >= 1000) {
-      const orderId = `DON-${Date.now()}`;
+    if (amount && amount >= 30000) {
+       const hex = Array.from(crypto.getRandomValues(new Uint8Array(4)))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+      const orderId = `DON-${Date.now()}-${hex}`;
 
       // Fetch the integrity hash from Strapi backend
       const signature = await this.fetchIntegritySignature(

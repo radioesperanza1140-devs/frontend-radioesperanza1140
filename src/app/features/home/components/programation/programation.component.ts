@@ -22,7 +22,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class ProgramationComponent implements OnInit, OnDestroy {
   programs: Programation[] = [];
   listPrograms: Programation[] = [];
-  assetsUrl = environment.UPLOADS_URL;
+  assetsUrl = '';
   isLoading: boolean = true; // Variable para manejar el estado de carga
 
   constructor(

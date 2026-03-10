@@ -41,12 +41,12 @@
           </label>
           <div class="donation__input-group">
             <span class="donation__input-prefix">$</span>
-            <input id="customAmount" type="number" min="1000" step="1000" class="donation__input"
-              placeholder="Ej: 25000" [formControl]="customAmountControl" />
+            <input id="customAmount" type="number" min="30000" step="30000" class="donation__input"
+              placeholder="Ej: 30000" [formControl]="customAmountControl" />
           </div>
           @if (customAmountControl.touched && customAmountControl.invalid) {
           <span class="donation__error">
-            El monto mínimo es $1,000 COP
+            El monto mínimo es $30,000 COP
           </span>
           }
         </div>
@@ -57,60 +57,122 @@
         </button>
       </div>
 
-      <!-- Step 2: Donor Info -->
       <div class="donation__step" [class.donation__step--active]="step() === 2">
-        <h3 class="donation__step-title">
-          <span class="donation__step-number">2</span>
-          Tus datos
-        </h3>
+            <h3 class="donation__step-title">
+              <span class="donation__step-number">2</span>
+              Tus datos
+            </h3>
 
-        <form [formGroup]="donorForm" class="donation__form">
-          <div class="donation__field">
-            <label for="fullName" class="donation__label">
-              Nombre completo
-            </label>
-            <input id="fullName" type="text" class="donation__input" formControlName="fullName"
-              placeholder="Ej: María García" />
-            @if (donorForm.get('fullName')?.touched && donorForm.get('fullName')?.invalid) {
-            <span class="donation__error">Ingresa tu nombre</span>
-            }
+            <form [formGroup]="donorForm" class="donation__form">
+              <div class="donation__field">
+                <label for="fullName" class="donation__label">
+                  Nombre completo
+                </label>
+                <input
+                  id="fullName"
+                  type="text"
+                  class="donation__input"
+                  formControlName="fullName"
+                  placeholder="Ej: María García"
+                />
+                @if (donorForm.get('fullName')?.touched && donorForm.get('fullName')?.invalid) {
+                  <span class="donation__error">Ingresa tu nombre</span>
+                }
+              </div>
+
+              <div class="donation__field">
+                <label for="email" class="donation__label">
+                  Correo electrónico
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  class="donation__input"
+                  formControlName="email"
+                  placeholder="Ej: maria@correo.com"
+                />
+                @if (donorForm.get('email')?.touched && donorForm.get('email')?.invalid) {
+                  <span class="donation__error">Ingresa un correo válido</span>
+                }
+              </div>
+
+              <div class="donation__field">
+                <label for="phone" class="donation__label">Teléfono</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  class="donation__input"
+                  formControlName="phone"
+                  placeholder="Ej: 3001234567"
+                />
+                @if (donorForm.get('phone')?.touched && donorForm.get('phone')?.invalid) {
+                  <span class="donation__error">
+                    Ingresa un número de teléfono válido
+                  </span>
+                }
+              </div>
+
+              <div class="donation__field-row">
+                <div class="donation__field donation__field--type">
+                  <label for="documentType" class="donation__label">
+                    Tipo de ID
+                  </label>
+                  <select
+                    id="documentType"
+                    class="donation__input donation__select"
+                    formControlName="documentType"
+                  >
+                    <option value="CC">CC</option>
+                    <option value="CE">CE</option>
+                    <option value="PA">Pasaporte</option>
+                    <option value="NIT">NIT</option>
+                    <option value="TI">TI</option>
+                  </select>
+                </div>
+
+                <div class="donation__field donation__field--doc">
+                  <label for="documentNumber" class="donation__label">
+                    Número de documento
+                  </label>
+                  <input
+                    id="documentNumber"
+                    type="text"
+                    inputmode="numeric"
+                    class="donation__input"
+                    formControlName="documentNumber"
+                    placeholder="Ej: 1234567890"
+                  />
+                  @if (donorForm.get('documentNumber')?.touched && donorForm.get('documentNumber')?.invalid) {
+                    <span class="donation__error">
+                      Ingresa un documento válido
+                    </span>
+                  }
+                </div>
+              </div>
+            </form>
+
+            <div class="donation__actions">
+              <button
+                type="button"
+                class="donation__back-btn"
+                (click)="goToStep(1)"
+              >
+                Volver
+              </button>
+              <button
+                type="button"
+                class="donation__pay-btn"
+                [disabled]="!canPay()"
+                (click)="openBoldCheckout()"
+              >
+                @if (boldService.isLoading()) {
+                  Cargando...
+                } @else {
+                  Donar {{ formattedAmount() }}
+                }
+              </button>
+            </div>
           </div>
-
-          <div class="donation__field">
-            <label for="email" class="donation__label">
-              Correo electrónico
-            </label>
-            <input id="email" type="email" class="donation__input" formControlName="email"
-              placeholder="Ej: maria@correo.com" />
-            @if (donorForm.get('email')?.touched && donorForm.get('email')?.invalid) {
-            <span class="donation__error">Ingresa un correo válido</span>
-            }
-          </div>
-
-          <div class="donation__field">
-            <label for="phone" class="donation__label">Teléfono</label>
-            <input id="phone" type="tel" class="donation__input" formControlName="phone" placeholder="Ej: 3001234567" />
-            @if (donorForm.get('phone')?.touched && donorForm.get('phone')?.invalid) {
-            <span class="donation__error">
-              Ingresa un número de teléfono válido
-            </span>
-            }
-          </div>
-        </form>
-
-        <div class="donation__actions">
-          <button type="button" class="donation__back-btn" (click)="goToStep(1)">
-            Volver
-          </button>
-          <button type="button" class="donation__pay-btn" [disabled]="!canPay()" (click)="openBoldCheckout()">
-            @if (boldService.isLoading()) {
-            Cargando...
-            } @else {
-            Donar {{ formattedAmount() }}
-            }
-          </button>
-        </div>
-      </div>
 
       <!-- Summary sidebar -->
       <div class="donation__summary">
