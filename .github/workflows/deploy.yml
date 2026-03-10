@@ -33,5 +33,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # Adjust this path to match your angular.json outputPath
           local-dir: ./dist/web-radioesperanza-1140/browser/
-          server-dir: ${{ secrets.FRONTEND_PATH }}/
+          server-dir: ${{ vars.FRONTEND_PATH }}/
           dangerous-clean-slate: false
