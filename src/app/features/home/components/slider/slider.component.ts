@@ -88,7 +88,7 @@ export class SliderComponent implements AfterViewInit {
           this.images = response.data.map((item: any) => ({
             title: item.title,
             description: item.slogan,
-            imageUrl: this.assetsUrl + item.imagen.url,
+            imageUrl: item.imagen.url,
           }));
           this.initializeSwiper();
         }

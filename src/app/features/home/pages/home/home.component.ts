@@ -5,7 +5,7 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
 
 import { PercentageSectionComponent } from '../../components/percentage-section/percentage-section.component';
 import { ProgramationComponent } from '../../components/programation/programation.component';
-import { DonationComponent } from '../../components/donation/donation.component';
+import {DonationSectionComponent} from '../../../donation/components/donation-section.component'
 import { FooterComponent } from '../../../../shared/footer/footer.component';
 import { PresentationComponent } from '../../components/presentation/presentation.component';
 import { RouterLink } from '@angular/router';
@@ -20,6 +20,7 @@ import { RouterLink } from '@angular/router';
     ProgramationComponent,
     PercentageSectionComponent,
     FooterComponent,
+    DonationSectionComponent,
     PresentationComponent,
     RouterLink,
   ],

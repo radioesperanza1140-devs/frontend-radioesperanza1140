@@ -1,0 +1,107 @@
+<div class="thanks" [style.--accent]="config().accent">
+  <!-- Warm gradient header -->
+  <div class="thanks__hero">
+    <div class="thanks__hero-gradient"></div>
+    <div class="thanks__hero-brand anim anim--up" style="--delay: 0s">
+      Radio Esperanza 1140 AM
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="thanks__content">
+    <!-- Status icon -->
+    <div class="thanks__icon-wrap anim anim--scale" style="--delay: 0.1s">
+      <div class="thanks__icon">
+        <span>{{ config().icon }}</span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="thanks__title anim anim--up" style="--delay: 0.15s">
+      {{ title() }}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="thanks__subtitle anim anim--up" style="--delay: 0.25s">
+      {{ config().subtitle }}
+    </p>
+
+    <!-- Donation details card -->
+    <div class="thanks__card anim anim--up" style="--delay: 0.3s">
+      <!-- Amount highlight -->
+      <div class="thanks__amount-box">
+        <span class="thanks__amount-label">Monto donado</span>
+        <span class="thanks__amount-value">{{ formattedAmount() }}</span>
+      </div>
+
+      <!-- Donor -->
+      <div class="thanks__card-sep"></div>
+      <div class="thanks__card-row">
+        <span class="thanks__card-label">Donante</span>
+        <span class="thanks__card-data thanks__card-data--bold">
+          {{ donorName() }}
+        </span>
+      </div>
+
+      <!-- Reference -->
+      @if (orderId()) {
+      <div class="thanks__card-sep"></div>
+      <div class="thanks__card-row">
+        <span class="thanks__card-label">Referencia</span>
+        <span class="thanks__card-data thanks__card-data--mono">
+          {{ orderId() }}
+        </span>
+      </div>
+      }
+
+      <!-- Status badge -->
+      <div class="thanks__card-sep"></div>
+      <div class="thanks__card-row">
+        <span class="thanks__card-label">Estado</span>
+        <span class="thanks__badge" [style.color]="config().accent" [style.background]="config().badgeBg">
+          {{ config().badge }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Personal message -->
+    <div class="thanks__message-card anim anim--up" style="--delay: 0.4s">
+      <div class="thanks__message-bar"></div>
+      <div class="thanks__message-body">
+        <p class="thanks__message-text">{{ personalMessage() }}</p>
+        <p class="thanks__message-sign">
+          — El equipo de Radio Esperanza 1140 AM
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="thanks__actions anim anim--up" style="--delay: 0.5s">
+      @if (txStatus() === 'declined') {
+      <a routerLink="/" fragment="donaciones" class="thanks__btn thanks__btn--primary">
+        Intentar de nuevo
+      </a>
+      } @else {
+      <a routerLink="/" class="thanks__btn thanks__btn--primary">
+        Volver al inicio
+      </a>
+      }
+      <a href="https://radioesperanza1140.com/en-vivo" target="_blank" rel="noopener"
+        class="thanks__btn thanks__btn--ghost">
+        Escuchar en vivo
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="thanks__footer anim anim--up" style="--delay: 0.6s">
+      <div class="thanks__footer-line">
+        <span class="thanks__footer-dash"></span>
+        <span class="thanks__footer-label">Pago seguro vía Bold</span>
+        <span class="thanks__footer-dash"></span>
+      </div>
+      <p class="thanks__footer-sub">
+        PCI DSS Certificado · Tus datos están protegidos
+      </p>
+    </footer>
+  </main>
+</div>

@@ -1,38 +1,37 @@
-# name: Deploy Angular to VPS
+# .github/workflows/deploy.yml (Repo del Frontend Angular)
+name: 🚀 Deploy Angular to cPanel
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches: [main]
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
+    steps:
+      - name: 📦 Checkout code
+        uses: actions/checkout@v4
 
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: 20
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
 
-#     - name: Install dependencies
-#       run: npm ci
+      - name: 📥 Install dependencies
+        run: npm ci
 
-#     - name: Build Angular app
-#       run: npm run build --prod
+      - name: 🏗️ Build Angular (production)
+        run: npm run build -- --configuration production
 
-#     - name: Deploy to VPS
-#       env:
-#         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-#       run: |
-#         echo "$SSH_PRIVATE_KEY" > key.pem
-#         chmod 600 key.pem
-#         ssh -i key.pem -o StrictHostKeyChecking=no root@radioesperanza1140.com "
-#           rm -rf /var/www/html/*
-#           mkdir -p /var/www/html
-#         "
-#         scp -i key.pem -o StrictHostKeyChecking=no -r dist/root@radioesperanza1140.com:/var/www/html/
-#         rm key.pem
+      - name: 📂 Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ vars.FTP_HOST }}
+          username: ${{ vars.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Adjust this path to match your angular.json outputPath
+          local-dir: ./dist/web-radioesperanza-1140/browser/
+          server-dir: ${{ secrets.FRONTEND_PATH }}/
+          dangerous-clean-slate: false

@@ -1,0 +1,136 @@
+<section class="donation" id="donaciones">
+  <div class="donation__container">
+    <!-- Header -->
+    <div class="donation__header">
+      <span class="donation__badge">Apoya nuestra misión</span>
+      <h2 class="donation__title">Tu donación hace la diferencia</h2>
+      <p class="donation__subtitle">
+        Cada aporte nos permite seguir llevando el mensaje de esperanza a
+        miles de personas a través de Radio Esperanza 1140 AM.
+      </p>
+    </div>
+
+    <div class="donation__body">
+      <!-- Step 1: Amount Selection -->
+      <div class="donation__step" [class.donation__step--active]="step() === 1">
+        <h3 class="donation__step-title">
+          <span class="donation__step-number">1</span>
+          Elige el monto de tu donación
+        </h3>
+
+        <!-- Preset amounts -->
+        <div class="donation__presets">
+          @for (preset of presets; track preset.value) {
+          <button type="button" class="donation__preset-btn" [class.donation__preset-btn--active]="
+                    !isCustomAmount() && selectedAmount() === preset.value
+                  " (click)="selectPreset(preset.value)">
+            {{ preset.label }}
+          </button>
+          }
+          <button type="button" class="donation__preset-btn donation__preset-btn--custom"
+            [class.donation__preset-btn--active]="isCustomAmount()" (click)="enableCustomAmount()">
+            Otro monto
+          </button>
+        </div>
+
+        <!-- Custom amount input -->
+        @if (isCustomAmount()) {
+        <div class="donation__custom-amount">
+          <label for="customAmount" class="donation__label">
+            Monto personalizado (COP)
+          </label>
+          <div class="donation__input-group">
+            <span class="donation__input-prefix">$</span>
+            <input id="customAmount" type="number" min="1000" step="1000" class="donation__input"
+              placeholder="Ej: 25000" [formControl]="customAmountControl" />
+          </div>
+          @if (customAmountControl.touched && customAmountControl.invalid) {
+          <span class="donation__error">
+            El monto mínimo es $1,000 COP
+          </span>
+          }
+        </div>
+        }
+
+        <button type="button" class="donation__next-btn" [disabled]="!isAmountValid()" (click)="goToStep(2)">
+          Continuar
+        </button>
+      </div>
+
+      <!-- Step 2: Donor Info -->
+      <div class="donation__step" [class.donation__step--active]="step() === 2">
+        <h3 class="donation__step-title">
+          <span class="donation__step-number">2</span>
+          Tus datos
+        </h3>
+
+        <form [formGroup]="donorForm" class="donation__form">
+          <div class="donation__field">
+            <label for="fullName" class="donation__label">
+              Nombre completo
+            </label>
+            <input id="fullName" type="text" class="donation__input" formControlName="fullName"
+              placeholder="Ej: María García" />
+            @if (donorForm.get('fullName')?.touched && donorForm.get('fullName')?.invalid) {
+            <span class="donation__error">Ingresa tu nombre</span>
+            }
+          </div>
+
+          <div class="donation__field">
+            <label for="email" class="donation__label">
+              Correo electrónico
+            </label>
+            <input id="email" type="email" class="donation__input" formControlName="email"
+              placeholder="Ej: maria@correo.com" />
+            @if (donorForm.get('email')?.touched && donorForm.get('email')?.invalid) {
+            <span class="donation__error">Ingresa un correo válido</span>
+            }
+          </div>
+
+          <div class="donation__field">
+            <label for="phone" class="donation__label">Teléfono</label>
+            <input id="phone" type="tel" class="donation__input" formControlName="phone" placeholder="Ej: 3001234567" />
+            @if (donorForm.get('phone')?.touched && donorForm.get('phone')?.invalid) {
+            <span class="donation__error">
+              Ingresa un número de teléfono válido
+            </span>
+            }
+          </div>
+        </form>
+
+        <div class="donation__actions">
+          <button type="button" class="donation__back-btn" (click)="goToStep(1)">
+            Volver
+          </button>
+          <button type="button" class="donation__pay-btn" [disabled]="!canPay()" (click)="openBoldCheckout()">
+            @if (boldService.isLoading()) {
+            Cargando...
+            } @else {
+            Donar {{ formattedAmount() }}
+            }
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary sidebar -->
+      <div class="donation__summary">
+        <div class="donation__summary-card">
+          <h4 class="donation__summary-title">Resumen</h4>
+          <div class="donation__summary-row">
+            <span>Donación</span>
+            <strong>{{ formattedAmount() }}</strong>
+          </div>
+          <hr class="donation__summary-divider" />
+          <p class="donation__summary-note">
+            Tu donación es procesada de forma segura a través de Bold.
+            Aceptamos tarjetas de crédito, débito, PSE y Nequi.
+          </p>
+          <div class="donation__summary-badges">
+            <span class="donation__security-badge">🔒 Pago seguro</span>
+            <span class="donation__security-badge">✓ PCI DSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

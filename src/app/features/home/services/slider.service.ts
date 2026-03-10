@@ -8,7 +8,7 @@ import { environment } from '../../../../environments/environment';
   providedIn: 'root'
 })
 export class SliderService {
-  apiUrl = environment.apiUrl;
+  apiUrl =  environment.API_URL;
   constructor(private http: HttpClient) {}
 
   getImages(): Observable<any> {
