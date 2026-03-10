@@ -5,6 +5,6 @@ export const environment = {
   //    API_URL: 'http://localhost:1337/api',
   // UPLOADS_URL: 'http://localhost:1337/api',
   // ── Bold Checkout ──
-  boldApiKey: 'f8R-JitO00_UdkUKRQDEWX-ttYKMnRCigadE9I5XH4o',         // Llave de identidad (pública, va al frontend)
+  boldApiKey: 'hE2ikBfV6-sDV5ok82M57vZr79uKB80G8xjqYD3tIRA',         // Llave de identidad (pública, va al frontend)
   boldRedirectUrl: 'https://radioesperanza1140.com/donacion/gracias',
 };

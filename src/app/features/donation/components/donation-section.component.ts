@@ -45,6 +45,7 @@ export class DonationSectionComponent implements OnInit {
   readonly presets: DonationPreset[] = [
     { label: '$30.000', value: 30000 },
     { label: '$60.000', value: 60000 },
+    { label: '$100.000', value: 100000 },
     { label: '$150.000', value: 150000 },
     { label: '$200.000', value: 200000 },
   ];
