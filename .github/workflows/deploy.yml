@@ -31,7 +31,9 @@ jobs:
           server: ${{ vars.FTP_HOST }}
           username: ${{ vars.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           # Adjust this path to match your angular.json outputPath
           local-dir: ./dist/web-radioesperanza-1140/browser/
           server-dir: ${{ vars.FRONTEND_PATH }}/
+
           dangerous-clean-slate: false
