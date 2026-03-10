@@ -57,17 +57,18 @@
         </button>
       </div>
 
+      <!-- Step 2: Donor Info -->
       <div class="donation__step" [class.donation__step--active]="step() === 2">
-            <h3 class="donation__step-title">
-              <span class="donation__step-number">2</span>
-              Tus datos
-            </h3>
+        <h3 class="donation__step-title">
+          <span class="donation__step-number">2</span>
+          Tus datos
+        </h3>
 
-            <form [formGroup]="donorForm" class="donation__form">
-              <div class="donation__field">
-                <label for="fullName" class="donation__label">
-                  Nombre completo
-                </label>
+        <form [formGroup]="donorForm" class="donation__form">
+          <div class="donation__field">
+            <label for="fullName" class="donation__label">
+              Nombre completo
+            </label>
                 <input
                   id="fullName"
                   type="text"
@@ -75,15 +76,15 @@
                   formControlName="fullName"
                   placeholder="Ej: María García"
                 />
-                @if (donorForm.get('fullName')?.touched && donorForm.get('fullName')?.invalid) {
-                  <span class="donation__error">Ingresa tu nombre</span>
-                }
-              </div>
+            @if (donorForm.get('fullName')?.touched && donorForm.get('fullName')?.invalid) {
+            <span class="donation__error">Ingresa tu nombre</span>
+            }
+          </div>
 
-              <div class="donation__field">
-                <label for="email" class="donation__label">
-                  Correo electrónico
-                </label>
+          <div class="donation__field">
+            <label for="email" class="donation__label">
+              Correo electrónico
+            </label>
                 <input
                   id="email"
                   type="email"
@@ -91,13 +92,13 @@
                   formControlName="email"
                   placeholder="Ej: maria@correo.com"
                 />
-                @if (donorForm.get('email')?.touched && donorForm.get('email')?.invalid) {
-                  <span class="donation__error">Ingresa un correo válido</span>
-                }
-              </div>
+            @if (donorForm.get('email')?.touched && donorForm.get('email')?.invalid) {
+            <span class="donation__error">Ingresa un correo válido</span>
+            }
+          </div>
 
-              <div class="donation__field">
-                <label for="phone" class="donation__label">Teléfono</label>
+          <div class="donation__field">
+            <label for="phone" class="donation__label">Teléfono</label>
                 <input
                   id="phone"
                   type="tel"
@@ -105,11 +106,11 @@
                   formControlName="phone"
                   placeholder="Ej: 3001234567"
                 />
-                @if (donorForm.get('phone')?.touched && donorForm.get('phone')?.invalid) {
-                  <span class="donation__error">
-                    Ingresa un número de teléfono válido
-                  </span>
-                }
+            @if (donorForm.get('phone')?.touched && donorForm.get('phone')?.invalid) {
+            <span class="donation__error">
+              Ingresa un número de teléfono válido
+            </span>
+            }
               </div>
 
               <div class="donation__field-row">
@@ -147,32 +148,32 @@
                       Ingresa un documento válido
                     </span>
                   }
-                </div>
+          </div>
               </div>
-            </form>
+        </form>
 
-            <div class="donation__actions">
+        <div class="donation__actions">
               <button
                 type="button"
                 class="donation__back-btn"
                 (click)="goToStep(1)"
               >
-                Volver
-              </button>
+            Volver
+          </button>
               <button
                 type="button"
                 class="donation__pay-btn"
                 [disabled]="!canPay()"
                 (click)="openBoldCheckout()"
               >
-                @if (boldService.isLoading()) {
-                  Cargando...
-                } @else {
-                  Donar {{ formattedAmount() }}
-                }
-              </button>
-            </div>
-          </div>
+            @if (boldService.isLoading()) {
+            Cargando...
+            } @else {
+            Donar {{ formattedAmount() }}
+            }
+          </button>
+        </div>
+      </div>
 
       <!-- Summary sidebar -->
       <div class="donation__summary">
