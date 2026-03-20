@@ -44,7 +44,7 @@ export class DonationSectionComponent implements OnInit {
   private getFeatureFlags = inject(GetFeatureFlagsUseCase);
 
   // ── Feature flags ──
-  readonly minAmount = signal(30000);
+  readonly minAmount = signal(1000);
 
   // ── Preset amounts (COP) ──
   readonly presets: DonationPreset[] = [

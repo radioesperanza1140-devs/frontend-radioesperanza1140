@@ -41,12 +41,12 @@
           </label>
           <div class="donation__input-group">
             <span class="donation__input-prefix">$</span>
-            <input id="customAmount" type="number" min="30000" step="30000" class="donation__input"
+            <input id="customAmount" type="number" min="${{minAmount()}}" step="30000" class="donation__input"
               placeholder="Ej: 30000" [formControl]="customAmountControl" />
           </div>
           @if (customAmountControl.touched && customAmountControl.invalid) {
           <span class="donation__error">
-            El monto mínimo es $30,000 COP
+            El monto mínimo es ${{ minAmount().toLocaleString('es-CO') }} COP
           </span>
           }
         </div>
