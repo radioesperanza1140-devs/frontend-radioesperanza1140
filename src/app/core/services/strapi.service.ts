@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 import { RadioPlayer } from '../domain/models/radio-player.model';
 import { Contacto } from '../domain/models/contacto';
 import { Peticion } from '../domain/models/peticion.model';
+import { FeatureFlag } from '../domain/models/feature-flag.model';
 
 @Injectable({ providedIn: 'root' })
 export class StrapiService {
@@ -47,5 +48,9 @@ export class StrapiService {
 
   addPeticion(peticion: Peticion) {
     return this.http.post(`${this.apiUrl}/peticiones`, { data: peticion });
+  }
+
+  getFeatureFlags(): Observable<FeatureFlag> {
+    return this.http.get<FeatureFlag>(`${this.apiUrl}/feature-flag`);
   }
 }

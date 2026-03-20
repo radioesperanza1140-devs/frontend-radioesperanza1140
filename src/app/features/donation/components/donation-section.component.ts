@@ -21,6 +21,7 @@ import {
   BoldCheckoutConfig,
   BoldCheckoutInstance,
 } from '../../../core/services/bold-checkout.service';
+import { GetFeatureFlagsUseCase } from '../../../core/domain/use-cases/get-feature-flags.usecase';
 
 /** Predefined donation amounts in COP */
 interface DonationPreset {
@@ -40,6 +41,10 @@ export class DonationSectionComponent implements OnInit {
   private fb = inject(FormBuilder);
   private platformId = inject(PLATFORM_ID);
   boldService = inject(BoldCheckoutService);
+  private getFeatureFlags = inject(GetFeatureFlagsUseCase);
+
+  // ── Feature flags ──
+  readonly minAmount = signal(30000);
 
   // ── Preset amounts (COP) ──
   readonly presets: DonationPreset[] = [
@@ -58,7 +63,7 @@ export class DonationSectionComponent implements OnInit {
   // ── Forms ──
   readonly customAmountControl = this.fb.control<number | null>(null, [
     Validators.required,
-    Validators.min(30000),
+    Validators.min(this.minAmount()),
   ]);
 
   readonly donorForm: FormGroup = this.fb.group({
@@ -136,11 +141,32 @@ export class DonationSectionComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
 
+    this.loadFeatureFlags();
+
     try {
       await this.boldService.loadScript();
     } catch (err) {
       console.error('[DonationSection] Error loading Bold script:', err);
     }
+  }
+
+  private loadFeatureFlags(): void {
+    this.getFeatureFlags.execute().subscribe({
+      next: (flags) => {
+        if (flags?.enableTestDonation) {
+          this.minAmount.set(1);
+          this.customAmountControl.setValidators([
+            Validators.required,
+            Validators.min(1),
+          ]);
+          this.customAmountControl.updateValueAndValidity();
+        }
+      },
+      error: (err) => {
+        console.error('[DonationSection] Error loading feature flags:', err);
+        // Si falla, se mantiene el monto mínimo por defecto (30000)
+      },
+    });
   }
 
   // ── Amount selection ──
@@ -193,7 +219,7 @@ export class DonationSectionComponent implements OnInit {
     };
 
     // If a specific amount is selected, we need orderId + integritySignature
-    if (amount && amount >= 30000) {
+    if (amount && amount >= this.minAmount()) {
        const hex = Array.from(crypto.getRandomValues(new Uint8Array(4)))
         .map(b => b.toString(16).padStart(2, '0')).join('');
       const orderId = `DON-${Date.now()}-${hex}`;

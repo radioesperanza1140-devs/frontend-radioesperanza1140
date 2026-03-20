@@ -9,7 +9,7 @@ import {
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
-type TxStatus = 'approved' | 'pending' | 'declined';
+type TxStatus = 'approved' | 'pending' | 'declined' | 'rejected';
 
 interface StatusConfig {
   icon: string;
@@ -43,6 +43,16 @@ const STATUS_MAP: Record<TxStatus, StatusConfig> = {
     badgeBg: '#fdf3e8',
   },
   declined: {
+    icon: '✕',
+    title: 'Algo salió mal, {name}',
+    subtitle: 'No se pudo completar tu donación',
+    message:
+      '{name}, no te preocupes, no se realizó ningún cobro a tu cuenta. Puedes intentarlo de nuevo con otro medio de pago.',
+    accent: '#e05252',
+    badge: 'Rechazada',
+    badgeBg: '#fde8e8',
+  },
+  rejected: {
     icon: '✕',
     title: 'Algo salió mal, {name}',
     subtitle: 'No se pudo completar tu donación',
