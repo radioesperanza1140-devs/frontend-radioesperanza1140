@@ -202,7 +202,8 @@ export class DonationSectionComponent implements OnInit {
       const signature = await this.fetchIntegritySignature(
         orderId,
         amount,
-        'COP'
+        'COP',
+        donor
       );
 
       config.orderId = orderId;
@@ -226,14 +227,24 @@ export class DonationSectionComponent implements OnInit {
   private async fetchIntegritySignature(
     orderId: string,
     amount: number,
-    currency: string
+    currency: string,
+    donor: { fullName: string; phone: string; documentNumber: string; documentType: string; email: string }
   ): Promise<string> {
     const res = await fetch(
       `${environment.API_URL}/bold-webhook/get-signature`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderId, amount, currency }),
+        body: JSON.stringify({
+          orderId,
+          amount,
+          currency,
+          donorFullName: donor.fullName,
+          donorPhone: donor.phone,
+          donorIdentification: donor.documentNumber,
+          donorIdentificationType: donor.documentType,
+          payerEmail: donor.email,
+        }),
       }
     );
 
