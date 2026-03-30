@@ -69,7 +69,7 @@ export class ProgramationDetailComponent {
 
         // Después de recibir los datos, actualizar imgUrl
         if (this.program.imagen != null)
-          this.imgUrl = this.assetsUrl + this.program.imagen.url;
+          this.imgUrl = this.program.imagen.url;
 
         // Una vez que los datos se hayan cargado, establecer isLoading en false
         this.isLoading = false;
